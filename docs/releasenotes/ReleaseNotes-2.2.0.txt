@@ -1,7 +1,7 @@
 Release Notes
 xTuple Time & Expense (xtte)
 Version 2.2.0
-September 27, 2013
+October 22, 2013
 ==================================
 
 This is the release of the 2.2.0 xTuple Time Expense package,, a free and open source extension package for xTuple ERP
