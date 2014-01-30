@@ -777,7 +777,9 @@ _next.enabled = false;
 _type.append(1, qsTr("Time"), "T");
 _type.append(2, qsTr("Expense"), "E");
 
-_items.setQuery(xtte.itemSql);
+//_items.setQuery(xtte.itemSql);
+_items.addExtraClause("(item_type='R') AND "
+                    + "(item_id IN (SELECT teexp_id FROM te.teexp))");
 
 _project.setAllowedStatuses(0x02); // In process
 
