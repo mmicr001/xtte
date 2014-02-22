@@ -24,7 +24,7 @@ to be bound by its terms.</comment>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Time and Expense</string>
+   <string>Worksheet</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">

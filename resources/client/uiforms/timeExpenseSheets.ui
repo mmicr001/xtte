@@ -30,7 +30,7 @@ to be bound by its terms.</comment>
    </size>
   </property>
   <property name="windowTitle">
-   <string>Time and Expense Sheets</string>
+   <string>Worksheets</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
    <property name="margin">

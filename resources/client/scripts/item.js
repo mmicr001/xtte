@@ -107,7 +107,7 @@ xtte.item.checkSave = function()
   {
     QMessageBox.critical(mywindow,
                        qsTr("Can not save item"),
-                       qsTr("You must select a G/L Account or an expense account for Project Expense Items."));
+                       qsTr("You must select a Ledger Account or an expense account for Project Expense Items."));
   }
   else
     mywindow.sSave();

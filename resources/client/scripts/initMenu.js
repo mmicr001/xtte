@@ -15,7 +15,7 @@ xtte.initMenu = new Object;
 var crmMenu = mainwindow.findChild("menu.crm.projects");
 crmMenu.addSeparator();
 
-var tesheetAction = crmMenu.addAction(qsTr("Time and Expense..."), mainwindow);
+var tesheetAction = crmMenu.addAction(qsTr("Worksheets..."), mainwindow);
 tesheetAction.objectName = "pm.teSheets";
 tesheetAction.setData("MaintainTimeExpense");
 tesheetAction.enabled = privileges.value("MaintainTimeExpense");
@@ -23,7 +23,7 @@ tesheetAction.enabled = privileges.value("MaintainTimeExpense");
 var crmRptMenu = mainwindow.findChild("menu.crm.reports");
 var orderActPrj = mainwindow.findChild("pm.dspOrderActivityByProject");
 
-var historyAction = new QAction(qsTr("Time and Expense History"), mainwindow);
+var historyAction = new QAction(qsTr("Worksheet History"), mainwindow);
 historyAction.objectName = "pm.teHistory";
 historyAction.setData("ViewTimeExpenseHistory");
 historyAction.enabled = privileges.value("ViewTimeExpenseHistory");

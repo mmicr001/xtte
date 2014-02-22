@@ -358,7 +358,7 @@ xtte.timeExpenseSheet.save = function()
   }
   catch (e)
   {
-    QMessageBox.critical(mywindow, qsTr("timeExpenseSheet"), e.message);
+    QMessageBox.critical(mywindow, qsTr("Worksheet"), e.message);
     return false;
   }
 }
@@ -501,9 +501,9 @@ xtte.timeExpenseSheet.close = function()
     if (_mode == "new" && _id != -1)
     {
       if (QMessageBox.question(mywindow,
-                         qsTr("Delete Sheet"),
+                         qsTr("Delete Worksheet"),
                          qsTr("<p>Are you sure you want to cancel this "
-                         + "sheet and discard all your changes?"),
+                         + "Worksheet and discard all your changes?"),
                           QMessageBox.Yes, QMessageBox.No) == QMessageBox.Yes)
       {
         var params = new Object;

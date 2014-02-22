@@ -412,7 +412,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
 
 xtte.timeExpenseSheets.deleteSheet = function()
 {
-  var msg = qsTr("This action can not be undone.  Are you sure you want to delete this sheet?");
+  var msg = qsTr("This action can not be undone.  Are you sure you want to delete this Worksheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
       QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
   {
@@ -427,7 +427,7 @@ xtte.timeExpenseSheets.deleteSheet = function()
 
 xtte.timeExpenseSheets.closeSheet = function()
 {
-  var msg = qsTr("This action can not be undone. Are you sure you want to close this sheet?");
+  var msg = qsTr("This action can not be undone. Are you sure you want to close this Worksheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
       QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
   {
@@ -579,7 +579,7 @@ xtte.timeExpenseSheets.populateEmployees = function()
     else
     {
       QMessageBox.critical(mywindow, qsTr("Permissions Error"),
-                    qsTr("You do not have permissions to maintain time and expense entries"));
+                    qsTr("You do not have permissions to maintain Worksheet entries"));
       if (mywindow.windowModality)
         mydialog.reject();
       else
