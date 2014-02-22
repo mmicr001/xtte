@@ -1,6 +1,6 @@
 <!DOCTYPE openRPTDef>
 <report>
- <title>Time Expense Sheets</title>
+ <title>Worksheets</title>
  <name>TimeExpenseSheets</name>
  <description></description>
  <grid>
@@ -155,7 +155,7 @@
    </font>
    <right/>
    <vcenter/>
-   <string>Time and Expense Sheets</string>
+   <string>Worksheets</string>
   </label>
   <label>
    <rect>

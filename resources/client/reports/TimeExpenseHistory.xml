@@ -1,6 +1,6 @@
 <!DOCTYPE openRPTDef>
 <report>
- <title>Time Expense History</title>
+ <title>Worksheet History</title>
  <name>TimeExpenseHistory</name>
  <description></description>
  <grid>
@@ -36,7 +36,7 @@
    </font>
    <right/>
    <vcenter/>
-   <string>Time and Expense History</string>
+   <string>Worksheet History</string>
   </label>
   <label>
    <rect>

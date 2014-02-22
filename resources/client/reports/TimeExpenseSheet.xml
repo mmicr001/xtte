@@ -1,6 +1,6 @@
 <!DOCTYPE openRPTDef>
 <report>
- <title>Time Expense Sheet</title>
+ <title>Worksheet</title>
  <name>TimeExpenseSheet</name>
  <description></description>
  <parameter default="2000" active="true" listtype="dynamic" type="string" name="tehead_id">
@@ -177,7 +177,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
    </font>
    <right/>
    <vcenter/>
-   <string>Time and Expense Sheet</string>
+   <string>Worksheet</string>
   </label>
   <label>
    <rect>
