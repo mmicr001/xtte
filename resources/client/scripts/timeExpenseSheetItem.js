@@ -226,7 +226,7 @@ xtte.timeExpenseSheetItem.getPrice = function()
     var qry = toolbox.executeDbQuery("timeexpensesheetitem", "getterate", params);
     if (qry.first())
     {
-      _rate.setBaseValue(qry.value("rate"));
+      _rate.setLocalValue(qry.value("rate"));
       _rate.enabled = true;
     }
     else
