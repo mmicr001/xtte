@@ -43,7 +43,7 @@ trailing:true, white:true*/
   enyo.kind(
     /** @lends XV.BiMapChart # */{
     name: "XV.BiMapChart",
-    kind: "XV.BiChartDimMeasure",
+    kind: "XV.BiChartTypeMeasure",
     published: {
       dateField: "",
       //endDate: new Date(),
@@ -55,7 +55,8 @@ trailing:true, white:true*/
       plotHeight: 0,
       plotWidth: 0,
       theMap: null,  // need to remember the map as it needs to be destroyed before recreated.
-      geoDimension: "[Ship City].[City Name]" // todo move to a button
+      geoDimension: "[Bill City].[City Name]", // todo move to a button
+      dimensionHier: "[Customer.Customer Code].[Customer Code]"
     },
 
     /**
@@ -64,6 +65,7 @@ trailing:true, white:true*/
     create: function () {
       this.inherited(arguments);
       this.updatedLabels = [];           //we modify labels with data so we make a this object
+      this.$.chartWrapper.setClasses("map-bottom");  //set map styles for background
     },
 
     /**
@@ -75,8 +77,7 @@ trailing:true, white:true*/
       _.each(this.queryTemplates, function (template, i) {
         var measure = this.schema.getMeasureName(template.cube, this.getMeasure()),
           dimensionGeo = this.getGeoDimension(),
-          dimensionHier = this.schema.getDimensionHier(template.cube, this.getDimension()),
-          dimensionNameProp = this.schema.getDimensionNameProp(template.cube, this.getDimension());
+          dimensionHier = this.getDimensionHier();
         this.queryStrings[i] = template.jsonToMDX(this.getWhere());
         this.queryStrings[i] = this.queryStrings[i].replace(/\$measure/g, measure);
         this.queryStrings[i] = this.queryStrings[i].replace(/\$dimensionGeo/g, dimensionGeo);
@@ -86,6 +87,7 @@ trailing:true, white:true*/
       }, this
       );
     },
+    
     /*
      * Process data from input format to output format.
      */
@@ -95,7 +97,7 @@ trailing:true, white:true*/
         values = [],
         entry = {},
         dimensionGeo = this.getGeoDimension(),
-        dimensionHier = this.schema.getDimensionHier(this.getCube(), this.getDimension());
+        dimensionHier = this.getDimensionHier();
       function getValueForPartKey(partKey, collection) {
         var theValue = null;
         _.each(collection, function (value, key) {
@@ -107,10 +109,10 @@ trailing:true, white:true*/
       }
       if (collection.models.length > 0) {
         for (var i = 0; i < collection.models.length; i++) {
-          entry = {"dimension": getValueForPartKey(dimensionHier, collection.models[i].attributes),
-                    "geoDimension": getValueForPartKey(dimensionGeo, collection.models[i].attributes),
+          entry = { "geoDimension": getValueForPartKey(dimensionGeo, collection.models[i].attributes),
                     "latitude": getValueForPartKey("[Latitude]", collection.models[i].attributes),
                     "longitude": getValueForPartKey("[Longitude]", collection.models[i].attributes),
+                    "dimension": getValueForPartKey(dimensionHier, collection.models[i].attributes),
                     "measure": getValueForPartKey("TheSum", collection.models[i].attributes)
                    };
           values.push(entry);
@@ -169,50 +171,8 @@ trailing:true, white:true*/
       var event = e;
     },
 
-    /*
-     * Plot seems to only work with leaflet-8dev.js.  But leaflet site is using leaflet72.js in
-     *
-
-    plot: function (type) {
-
-      var divId = this.$.chart.$.svg.hasNode().id,
-        chartId = this.$.chart.hasNode().id,
-        that = this;
-
-      if (this.getProcessedData().length > 0) {
-
-        if (this.getTheMap()) {
-          this.getTheMap().remove();
-        }
-        this.setTheMap(new L.Map(chartId));
-
-        // create the tile layer with correct attribution
-
-        //var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmUrl = 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
-
-        //var osmAttrib='Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 100, id: 'examples.map-i86knfo3'});
-
-        // start the map in South-East England
-        this.getTheMap().setView(new L.LatLng(36, -76), 9);
-        this.getTheMap().addLayer(osm);
-
-        _.each(this.getProcessedData()[0].values, function (value) {
-          L.marker([value.latitude, value.longitude])
-            .addTo(that.getTheMap())
-            .bindPopup("<b>" + value.dimension + "</br>" +
-                       "<b>" + value.geoDimension + "</br>" +
-                       "<b>" + value.measure + "</br>");
-        });
-
-      }
-    },
-
-*/
-
 /*
- *  See file:///Z:/xtuple-fork/private-extensions/lib/leaflet-markercluster/example/marker-clustering-custom.html
+ *  See file:///Z:/xtuple-fork/private-extensions/lib/leaflet-markercluster/example/marker-clustering.html
  *  Errors if used with leaflet-8dev.js.
  *  Stalls on this.getTheMap().addLayer(markers) using leaflet7.js
  *
@@ -223,24 +183,14 @@ trailing:true, white:true*/
         chartId = this.$.chart.hasNode().id,
         that = this,
         shownLayer,
-        polygon;
-        //Custom radius and icon create function
-      var markers = new L.MarkerClusterGroup({
-          maxClusterRadius: 120,
-          iconCreateFunction: function (cluster) {
-            var markers = cluster.getAllChildMarkers(),
-              n = 0;
-            for (var i = 0; i < markers.length; i++) {
-              n += Number(markers[i].number);
-            }
-            n = Math.round(n);
-            return L.divIcon({ html: n, className: 'map-cluster', iconSize: L.point(40, 40) });
-          },
-          //Disable all of the defaults:
-          spiderfyOnMaxZoom: false,
-          showCoverageOnHover: false,
-          zoomToBoundsOnClick: false
-        });
+        polygon,
+        amounts = [],
+        amountsSum,
+        tileLayer,
+        markerKey = {geoDimension: "", latitude: "", longitude: "",},
+        marker,
+        markerLabel,
+        markerSum;
 
       function removePolygon() {
         if (shownLayer) {
@@ -252,46 +202,112 @@ trailing:true, white:true*/
           polygon = null;
         }
       }
+      
+      /*
+       * Make a cluster group icon when zoom in or out.  The range between the smallest amount
+       * and the sum of amounts is divided into 3 ranges.  Small, medium and large icons are 
+       * used for the ranges.
+       */
+      var markers = new L.MarkerClusterGroup({
+          iconCreateFunction: function (cluster) {
+            var markers = cluster.getAllChildMarkers(),
+              n = 0,
+              minAmount = Math.min.apply(Math, amounts),
+              thirdRange = (amountsSum - minAmount) / 3;
+            for (var i = 0; i < markers.length; i++) {
+              n += Number(markers[i].number);
+            }
+            n = Math.round(n);
+            if (n <= minAmount + thirdRange) {
+              return L.divIcon({ html: n,
+                className: 'leaflet-marker-icon marker-cluster marker-cluster-small leaflet-zoom-animated leaflet-clickable',
+                iconSize: L.point(40, 40) });
+            }
+            else if ((n > minAmount + thirdRange) && (n <= minAmount + 2 * thirdRange)) {
+              return L.divIcon({ html: n,
+                className: 'leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-clickable',
+                iconSize: L.point(50, 50) });
+            }
+            else {
+              return L.divIcon({ html: n,
+                className: 'leaflet-marker-icon marker-cluster marker-cluster-large leaflet-zoom-animated leaflet-clickable',
+                iconSize: L.point(60, 60) });
+            }
+          },
+        });
 
       if (this.getProcessedData().length > 0) {
-
+        
+        /*  
+         * Make a new map
+         */
         if (this.getTheMap()) {
           this.getTheMap().remove();
         }
         this.setTheMap(new L.Map(chartId), {zoom: 50});
-
-        //var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmUrl = 'https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
-
-        //var osmAttrib='Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 50, id: 'examples.map-i86knfo3'});
+        tileLayer = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 18});
         this.getTheMap().setView(new L.LatLng(36, -76), 5);
-        this.getTheMap().addLayer(osm);
+        this.getTheMap().addLayer(tileLayer);
+        
+        /*
+         * Make a marker and add it to the markerClusterGroup.  Data is aggregated for each unique 
+         * markerKey.  This location can have many data items and they are listed in the label.
+         */
 
         _.each(this.getProcessedData()[0].values, function (value) {
-          //L.marker([value.latitude, value.longitude])
-          //  .addTo(that.getTheMap())
-          //  .bindPopup("<b>" + value.dimension + "</br>" +
-          //             "<b>" + value.geoDimension + "</br>" +
-          //             "<b>" + value.measure + "</br>");
-
-          var m = L.marker([value.latitude, value.longitude], { title: value.measure });
-          m.number = value.measure || 0;
-          //m.number = 10;          
-          markers.addLayer(m);
+          var key = {geoDimension: value.geoDimension, latitude: value.latitude, longitude: value.longitude};
+          if (!(_.isEqual(key, markerKey))) {
+            markerKey = key;
+            if (marker) {
+              markerLabel += "<dl/>";
+              marker.bindLabel(markerLabel);
+              marker.number = markerSum || 0;
+              amounts.push(markerSum || 0);
+              markers.addLayer(marker);
+            }
+            marker = L.marker(new L.LatLng(value.latitude, value.longitude));
+            markerLabel = "<dl><dt>" + value.geoDimension + "</dt><dd>" + value.dimension + ", " + value.measure + "</dd>";
+            markerSum = Number(value.measure);
+          }
+          else {
+            markerLabel += "<dd>" + value.dimension + ", " + value.measure + "</dd>";
+            markerSum += Number(value.measure);
+          }
         });
-
+        
+        /*
+         * Cslculate the sum of all amounts to use in marker cluster icon generation
+         */
+        amountsSum = _.reduce(amounts, function (sum, el) {
+          return sum + Number(el);
+        }, 0);
+        
+        /*
+         * Add markers to map
+         */
         this.getTheMap().addLayer(markers);
+        
+        /*
+         * Arrg! The boundary polygons look like they are properly added but they don't show up in the map.
+         */
         markers.on('clustermouseover', function (a) {
           removePolygon();
-          a.layer.setOpacity(0.2);
+          //a.layer.setOpacity(0.2);
           shownLayer = a.layer;
-          polygon = L.polygon(a.layer.getConvexHull());
+          polygon = L.polygon(a.layer.getConvexHull(),
+          {"properties": {
+            "style": {
+              "color": "#004070",
+              "weight": 4
+              //"opacity": 1
+            }
+          },
+          className: null
+          });
           that.getTheMap().addLayer(polygon);
         });
         markers.on('clustermouseout', removePolygon);
         this.getTheMap().on('zoomend', removePolygon);
-
       }
     },
 
