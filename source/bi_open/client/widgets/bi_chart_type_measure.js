@@ -88,7 +88,7 @@ trailing:true, white:true*/
         if (model.get("measure")) {
           this.setMeasure(model.get("measure"));
         }
-        this.setChartType(model.get("chartType") || "barChart");
+        this.setChartType(model.get("chartType") || this.getChartOptions()[0].name);
                         
         // Set last filter uuid.  This will drive fetchCollection if a filter is defined
         this.setLastFilter();

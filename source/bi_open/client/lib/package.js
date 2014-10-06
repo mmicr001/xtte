@@ -11,5 +11,6 @@ enyo.depends(
   "leaflet-markercluster/dist/MarkerCluster.css",
   "leaflet-markercluster/dist/MarkerCluster.Default.css",
   "leaflet-label/dist/leaflet.label.js",
-  "leaflet-label/dist/leaflet.label.css"
+  "leaflet-label/dist/leaflet.label.css",
+  "leaflet-providers/leaflet-providers.js"
 );

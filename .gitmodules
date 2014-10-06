@@ -15,3 +15,6 @@
 [submodule "source/bi_open/client/lib/leaflet-label"]
 	path = source/bi_open/client/lib/leaflet-label
 	url = https://github.com/Leaflet/Leaflet.label.git
+[submodule "source/bi_open/client/lib/leaflet-providers"]
+	path = source/bi_open/client/lib/leaflet-providers
+	url = https://github.com/leaflet-extras/leaflet-providers.git

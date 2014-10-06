@@ -219,17 +219,17 @@ trailing:true, white:true*/
             }
             n = Math.round(n);
             if (n <= minAmount + thirdRange) {
-              return L.divIcon({ html: n,
+              return L.divIcon({ html: '<br>' + n,
                 className: 'leaflet-marker-icon marker-cluster marker-cluster-small leaflet-zoom-animated leaflet-clickable',
                 iconSize: L.point(40, 40) });
             }
             else if ((n > minAmount + thirdRange) && (n <= minAmount + 2 * thirdRange)) {
-              return L.divIcon({ html: n,
+              return L.divIcon({ html: '<br>' + n,
                 className: 'leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-clickable',
                 iconSize: L.point(50, 50) });
             }
             else {
-              return L.divIcon({ html: n,
+              return L.divIcon({ html: '<br>' + n,
                 className: 'leaflet-marker-icon marker-cluster marker-cluster-large leaflet-zoom-animated leaflet-clickable',
                 iconSize: L.point(60, 60) });
             }
@@ -245,7 +245,10 @@ trailing:true, white:true*/
           this.getTheMap().remove();
         }
         this.setTheMap(new L.Map(chartId), {zoom: 50});
-        tileLayer = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 18});
+        //tileLayer = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {minZoom: 1, maxZoom: 18});
+        tileLayer = L.tileLayer.provider(this.getChartType());
+        tileLayer.options.minZoom = 1;
+        tileLayer.options.maxZoom = 18;
         this.getTheMap().setView(new L.LatLng(36, -76), 5);
         this.getTheMap().addLayer(tileLayer);
         
