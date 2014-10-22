@@ -190,7 +190,8 @@ trailing:true, white:true*/
         markerKey = {geoDimension: "", latitude: "", longitude: "",},
         marker,
         markerLabel,
-        markerSum;
+        markerSum,
+        measure = this.schema.getMeasureName(this.getCube(), this.getMeasure());
 
       function removePolygon() {
         if (shownLayer) {
@@ -213,24 +214,35 @@ trailing:true, white:true*/
             var markers = cluster.getAllChildMarkers(),
               n = 0,
               minAmount = Math.min.apply(Math, amounts),
-              thirdRange = (amountsSum - minAmount) / 3;
+              thirdRange = (amountsSum - minAmount) / 3,
+              sumFormatted = 0;
             for (var i = 0; i < markers.length; i++) {
               n += Number(markers[i].number);
             }
             n = Math.round(n);
+            // format measure
+            if (measure.indexOf("Amount") !== -1 || measure.indexOf("Average") !== -1) {
+              sumFormatted = XV.FormattingMixin.formatMoney(n, that);
+            }
+            else {
+              sumFormatted = XV.FormattingMixin.formatQuantity(n, that);
+            }
             if (n <= minAmount + thirdRange) {
-              return L.divIcon({ html: '<br>' + n,
-                className: 'leaflet-marker-icon marker-cluster marker-cluster-small leaflet-zoom-animated leaflet-clickable',
+              return L.divIcon({ html: '<br>' + sumFormatted,
+                //className: 'leaflet-marker-icon map-cluster marker-cluster-small leaflet-zoom-animated leaflet-clickable',
+                className: 'map-cluster map-cluster-small',
                 iconSize: L.point(40, 40) });
             }
             else if ((n > minAmount + thirdRange) && (n <= minAmount + 2 * thirdRange)) {
-              return L.divIcon({ html: '<br>' + n,
-                className: 'leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-clickable',
+              return L.divIcon({ html: '<br>' + sumFormatted,
+                //className: 'leaflet-marker-icon map-cluster marker-cluster-medium leaflet-zoom-animated leaflet-clickable',
+                className: 'map-cluster map-cluster-medium',
                 iconSize: L.point(50, 50) });
             }
             else {
-              return L.divIcon({ html: '<br>' + n,
-                className: 'leaflet-marker-icon marker-cluster marker-cluster-large leaflet-zoom-animated leaflet-clickable',
+              return L.divIcon({ html: '<br>' + sumFormatted,
+                //className: 'leaflet-marker-icon map-cluster marker-cluster-large leaflet-zoom-animated leaflet-clickable',
+                className: 'map-cluster map-cluster-large',
                 iconSize: L.point(60, 60) });
             }
           },
@@ -258,7 +270,8 @@ trailing:true, white:true*/
          */
 
         _.each(this.getProcessedData()[0].values, function (value) {
-          var key = {geoDimension: value.geoDimension, latitude: value.latitude, longitude: value.longitude};
+          var key = {geoDimension: value.geoDimension, latitude: value.latitude, longitude: value.longitude},
+            sumFormatted = 0;
           if (!(_.isEqual(key, markerKey))) {
             markerKey = key;
             if (marker) {
@@ -268,8 +281,16 @@ trailing:true, white:true*/
               amounts.push(markerSum || 0);
               markers.addLayer(marker);
             }
+            // format measure
+            if (measure.indexOf("Amount") !== -1 || measure.indexOf("Average") !== -1) {
+              sumFormatted = XV.FormattingMixin.formatMoney(Number(value.measure), that);
+            }
+            else {
+              sumFormatted = XV.FormattingMixin.formatQuantity(Number(value.measure), that);
+            }
+            // make the marker
             marker = L.marker(new L.LatLng(value.latitude, value.longitude));
-            markerLabel = "<dl><dt>" + value.geoDimension + "</dt><dd>" + value.dimension + ", " + value.measure + "</dd>";
+            markerLabel = "<dl><dt>" + value.geoDimension + "</dt><dd>" + value.dimension + ", " + sumFormatted + "</dd>";
             markerSum = Number(value.measure);
           }
           else {

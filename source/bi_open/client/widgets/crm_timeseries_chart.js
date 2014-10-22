@@ -269,7 +269,7 @@ trailing:true, white:true*/
              value: "IIf((([Measures].[Days Expire Date] = -1) OR [Measures].[Days, Now to Expiration] > 0), [Measures].[NEKPI], 0.00)"
           },
           {name: "Measures.[prevKPI]",
-             value: "([Measures].[$measure] , ParallelPeriod([Issue Date.Calendar Months].[$year]))"
+             value: "([Measures].[KPI] , ParallelPeriod([Issue Date.Calendar Months].[$year]))"
           },
           {name: "[Measures].[prevYearKPI]",
              value: "iif(Measures.[prevKPI] = 0 or Measures.[prevKPI] = NULL or IsEmpty(Measures.[prevKPI]), 0.000, Measures.[prevKPI])"

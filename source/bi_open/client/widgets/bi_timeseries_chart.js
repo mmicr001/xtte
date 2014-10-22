@@ -90,19 +90,20 @@ trailing:true, white:true*/
         // *  measure value as Measure
         // *  measure name as MeasureYear
         // Set chart title
-        var values = [];
+        var values = [],
+          year = "",
+          period = "";
         for (var i = 0; i < collection.models.length; i++) {
-          var entry = { "Period" : collection.models[i].attributes[this.getPlotDimension1()] +
-                          '-' +
-                          collection.models[i].attributes[this.getPlotDimension2()],
+          period = collection.models[i].attributes[this.getPlotDimension2()];
+          period = Number(period) < 10 ? "0" + period : period;
+          year = collection.models[i].attributes[this.getPlotDimension1()];
+          var entry = { "Period" : year + '-' + period,
                           "Measure" : collection.models[i].attributes["[Measures].[KPI]"],
                           "Measure Name" : ("_" +  this.getMeasure()).loc()};
           values.push(entry);
-          entry = { "Period" : collection.models[i].attributes[this.getPlotDimension1()] +
-                          '-' +
-                          collection.models[i].attributes[this.getPlotDimension2()],
-                          "Measure" : collection.models[i].attributes["[Measures].[prevYearKPI]"],
-                          "Measure Name" : "_previousYear".loc()};
+          entry = { "Period" : year + '-' + period,
+                      "Measure" : collection.models[i].attributes["[Measures].[prevYearKPI]"],
+                      "Measure Name" : "_previousYear".loc()};
           values.push(entry);
         }
         formattedData.push({ values: values, measures: [ this.getMeasure(), "Previous Year"]});
@@ -200,6 +201,7 @@ trailing:true, white:true*/
           chart = chartFunc(type),
           series = myChart.addSeries("Measure Name", chart),
           legend = myChart.addLegend(65, 10, 400, 20, "center", series);
+        x.addOrderRule("Period");  // order by periods (needed by firefox)
         //
         // draw chart
         //

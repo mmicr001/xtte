@@ -8,6 +8,9 @@ XT.extensions.bi_open.initPostbooks = function () {
   var panelsCrmDash = [
       {name: "crmBiDashboard", kind: "XV.CrmBiDashboard"},
     ],
+    crmMaps = [
+      {name: "crmBiMapboard", kind: "XV.CrmBiMapboard"}
+    ],
     dashboardModule = {
       name: "welcomeDashboard",
       hasSubmenu: false,
@@ -41,11 +44,25 @@ XT.extensions.bi_open.initPostbooks = function () {
        */
       {name: "opportunityFunnel", label: "_opportunitiesFunnel".loc(), item: "XV.FunnelOpportunitiesChart", privileges: ["ViewAllOpportunities"]},
       {name: "salesVelocity", label: "_salesVelocity".loc(), item: "XV.Period12SumSalesVelocityChart", privileges: ["ViewAllOpportunities"]},
-    ];
+    ],
+    mapActions = [
+        /*
+         * CRM maps
+         */
+        {name: "opportunitiesMapTrailing", label: "_opportunitiesMapTrailing".loc(), item: "XV.Period12OpportunitiesMapChart", privileges: ["ViewAllOpportunities"]},
+        {name: "opportunitiesActiveMapTrailing", label: "_opportunitiesActiveMapTrailing".loc(), item: "XV.Period12OpportunitiesActiveMapChart", privileges: ["ViewAllOpportunities"]},
+        {name: "quotesMapTrailing", label: "_quotesMapTrailing".loc(), item: "XV.Period12QuotesMapChart", privileges: ["ViewQuotes"]},
+        {name: "quotesActiveMapTrailing", label: "_quotesActiveMapTrailing".loc(), item: "XV.Period12QuotesActiveMapChart", privileges: ["ViewQuotes"]}
+      ];
 
   XT.app.$.postbooks.appendPanels("crm", panelsCrmDash, true);
+  XT.app.$.postbooks.appendPanels("crm", crmMaps);
   XT.app.$.postbooks.insertModule(dashboardModule, 0);
+  
   // Add chart actions to global XT.chartActions that we set up in core.js
   XT.chartActions.push.apply(XT.chartActions, chartActions);
+  
+  // Add chart map to global XT.chartActions that we set up in core.js
+  XT.mapActions.push.apply(XT.mapActions, mapActions);
   
 };
