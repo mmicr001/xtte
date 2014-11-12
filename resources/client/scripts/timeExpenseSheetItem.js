@@ -244,7 +244,7 @@ xtte.timeExpenseSheetItem.populate = function()
   var params = new Object();
   params.teitem_id = _teitemid;
 
-  qry = toolbox.executeDbQuery("timeexpensesheetitem","detail", params);
+  var qry = toolbox.executeDbQuery("timeexpensesheetitem","detail", params);
   if (qry.first())
   {
     if (_mode == xtte.newMode)
@@ -746,7 +746,7 @@ xtte.timeExpenseSheetItem.testCurrEmpId = function()
 {
   var params = new Object;
   params.emp_id = _employee.id();
-  qry = toolbox.executeQuery("SELECT crmacct_emp_id = <? value('emp_id') ?>::integer AS test "
+  var qry = toolbox.executeQuery("SELECT crmacct_emp_id = <? value('emp_id') ?>::integer AS test "
                      + "FROM  crmacct "
                      + "WHERE crmacct_usr_username = getEffectiveXtUser();", params);
   if (qry.first()) {
