@@ -58,6 +58,8 @@ strict:true, trailing:true, white:true */
     "_opportunitiesActiveNext": "Opportunities Next 6 months",
     "_opportunityForecastTrailing": "Opportunity Forecast",
     "_opportunitiesFunnel": "Opportunity Pipeline",
+    "_opportunitiesMapTrailing": "Opportunities City Map",
+    "_opportunitiesActiveMapTrailing": "Active Opportunities City Map",
     "_opportunitiesTrailing": "Opportunities",
     "_opportunitiesBookingsTrailing": "Opportunity Conversion",
     "_percentForecastProbability": "Forecast Probability",
@@ -66,6 +68,8 @@ strict:true, trailing:true, white:true */
     "_periodEnding": "Period Ending",
     "_previousYear": "Previous Year",
     "_productCategory": "Item Category",  // really itemCategory
+    "_quotesActiveMapTrailing": "Active Quotes City Map",
+    "_quotesMapTrailing": "Quotes City Map",
     "_quotesTrailing": "Quotes",
     "_quotesActiveTrailing": "Active Quotes",
     "_ratioConversion": "Opportunity Conversion Ratio",

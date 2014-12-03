@@ -177,7 +177,7 @@ trailing:true, white:true*/
   XT.mdxQueryMapPeriods.prototype = _.extend(Object.create(XT.mdxQuery.prototype), {
       members: [
         {name: "[Measures].[TheSum]",
-           value: 'SUM({LASTPERIODS(12, [Issue Date.Calendar].[$year].[$month])}, [Measures].[Amount, Order Gross])'
+           value: 'SUM({LASTPERIODS(12, [Issue Date.Calendar].[$year].[$month])}, [Measures].[$measure])'
         },
         {name: "[Measures].[Longitude]",
            value: 'iif ([Measures].[TheSum] is empty, null, $dimensionGeo.CurrentMember.Properties("Longitude"))'
@@ -190,7 +190,7 @@ trailing:true, white:true*/
         "[Measures].[Latitude]", "[Measures].[Longitude]", "[Measures].[TheSum]",
       ],
       rows: [
-        "CrossJoin($dimensionHier.Members, $dimensionGeo.Members)"
+        "CrossJoin($dimensionGeo.Members, $dimensionHier.Members)"
       ],
       cube: "",
       where: []
