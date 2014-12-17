@@ -193,6 +193,9 @@ trailing:true, white:true*/
         markerSum,
         measure = this.schema.getMeasureName(this.getCube(), this.getMeasure());
 
+      L.Icon.Default.imagePath = XT.getBaseUrl() + XT.getOrganizationPath() +
+          '/xtuple-extensions/source/bi_open/client/lib/leaflet/dist/images';
+
       function removePolygon() {
         if (shownLayer) {
           shownLayer.setOpacity(1);

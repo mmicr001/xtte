@@ -245,6 +245,7 @@ trailing:true, white:true*/
       this.$.chart.createComponent(
           {name: "svg",
             tag: this.getChartTag(),
+			attributes: { width: this.getPlotWidth(), height: this.getPlotHeight()},
             content: " "                //some plot areas must have content - like an html5 canvas
             }
           );

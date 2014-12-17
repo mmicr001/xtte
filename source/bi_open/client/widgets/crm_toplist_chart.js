@@ -158,7 +158,7 @@ trailing:true, white:true*/
           collection: "XM.UserAccountRelationCollection",
           workspace: "XM.UserAccountRelation",
           parameters: [
-            {name: "number", operator: "MATCHES", value: ""},
+            {name: "username", operator: "MATCHES", value: ""},
           ]
         },
         {
