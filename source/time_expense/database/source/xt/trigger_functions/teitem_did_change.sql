@@ -2,10 +2,6 @@ create or replace function xt.teitem_did_change() returns trigger as $$
 /* Copyright (c) 1999-2014 by OpenMFG LLC, d/b/a xTuple.
    See www.xm.ple.com/CPAL for the full text of the software license. */
 
-   if (typeof XT === 'undefined') {
-     plv8.execute("select xt.js_init();");
-   }
-
    var data = Object.create(XT.Data),
      sql,
      params,
