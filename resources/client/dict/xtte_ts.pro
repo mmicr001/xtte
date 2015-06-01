@@ -17,7 +17,7 @@ FORMS += ../uiforms/dspTimeExpenseHistory.ui \
          ../uiforms/timeExpenseSheetByProject.ui \
          ../uiforms/timeExpenseSheetItem.ui \
          ../uiforms/timeExpenseSheets.ui
-TRANSLATIONS += xtte.base.ts
+
 SOURCES += \
 ../scripts/configureCRM.js \
 ../scripts/customer.js \
@@ -35,6 +35,34 @@ SOURCES += \
 ../scripts/timeExpenseSheet.js \
 ../scripts/timeExpenseSheetItem.js \
 ../scripts/timeExpenseSheets.js \
-../scripts/xtte.js \
+../scripts/xtte.js
 
-TRANSLATIONS += xtte.base.ts
+TRANSLATIONS += xtte.base.ts    \
+                xtte.ar_eg.ts   \
+                xtte.bg.ts      \
+                xtte.cn.ts      \
+                xtte.cs.ts      \
+                xtte.de.ts      \
+                xtte.de_at.ts   \
+                xtte.de_ch.ts   \
+                xtte.en_ca.ts   \
+                xtte.es.ts      \
+                xtte.es_ar.ts   \
+                xtte.es_mx.ts   \
+                xtte.et_ee.ts   \
+                xtte.fr.ts      \
+                xtte.fr_ca.ts   \
+                xtte.hr.ts      \
+                xtte.it.ts      \
+                xtte.jp.ts      \
+                xtte.nl.ts      \
+                xtte.no.ts      \
+                xtte.pl.ts      \
+                xtte.pt.ts      \
+                xtte.pt_br.ts   \
+                xtte.ru.ts      \
+                xtte.sk.ts      \
+                xtte.tr.ts      \
+                xtte.ua.ts      \
+                xtte.zh_hk.ts   \
+                xtte.zh_tw.ts
