@@ -371,6 +371,11 @@
 <context>
     <name>timeExpenseSheet</name>
     <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="45"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../scripts/timeExpenseSheet.js" line="48"/>
         <source>Line #</source>
         <translation type="unfinished"></translation>
@@ -431,6 +436,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="60"/>
+        <source>Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="61"/>
+        <location filename="../scripts/timeExpenseSheet.js" line="456"/>
+        <source>Expense</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="62"/>
+        <location filename="../uiforms/timeExpenseSheet.ui" line="264"/>
+        <source>Notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../scripts/timeExpenseSheet.js" line="67"/>
         <source>Billable</source>
         <translation type="unfinished"></translation>
@@ -443,11 +465,6 @@
     <message>
         <location filename="../scripts/timeExpenseSheet.js" line="69"/>
         <source>Extended</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="45"/>
-        <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -531,42 +548,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="490"/>
-        <source>printSheet exception: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="504"/>
-        <source>Delete Worksheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="505"/>
-        <source>&lt;p&gt;Are you sure you want to cancel this Worksheet and discard all your changes?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="523"/>
-        <source>close exception: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="455"/>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="61"/>
-        <location filename="../scripts/timeExpenseSheet.js" line="456"/>
-        <source>Expense</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="60"/>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../scripts/timeExpenseSheet.js" line="361"/>
         <location filename="../uiforms/timeExpenseSheet.ui" line="27"/>
         <source>Worksheet</source>
@@ -593,6 +574,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="455"/>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../scripts/timeExpenseSheet.js" line="457"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
@@ -615,6 +601,26 @@
     <message>
         <location filename="../scripts/timeExpenseSheet.js" line="483"/>
         <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="490"/>
+        <source>printSheet exception: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="504"/>
+        <source>Delete Worksheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="505"/>
+        <source>&lt;p&gt;Are you sure you want to cancel this Worksheet and discard all your changes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheet.js" line="523"/>
+        <source>close exception: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -673,12 +679,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheet.js" line="62"/>
-        <location filename="../uiforms/timeExpenseSheet.ui" line="264"/>
-        <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../uiforms/timeExpenseSheet.ui" line="295"/>
         <source>Print on Save</source>
         <translation type="unfinished"></translation>
@@ -710,6 +710,11 @@
     <message>
         <location filename="../scripts/timeExpenseSheetItem.js" line="162"/>
         <source>task</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheetItem.js" line="211"/>
+        <source>Update Rate?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -751,11 +756,6 @@
     <message>
         <location filename="../scripts/timeExpenseSheetItem.js" line="329"/>
         <source>Processing Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../scripts/timeExpenseSheetItem.js" line="211"/>
-        <source>Update Rate?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -818,6 +818,47 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="21"/>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="27"/>
+        <source>Worksheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="35"/>
+        <source>Worksheet:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="52"/>
+        <source>Line #:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="113"/>
+        <source>Week of:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="133"/>
+        <source>Work Date:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="143"/>
+        <source>Project #:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="199"/>
+        <source>Task:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../uiforms/timeExpenseSheetItem.ui" line="236"/>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../uiforms/timeExpenseSheetItem.ui" line="288"/>
         <source>  Cust. PO#:</source>
         <translation type="unfinished"></translation>
@@ -845,42 +886,6 @@ Would you like to save them now?</source>
     <message>
         <location filename="../uiforms/timeExpenseSheetItem.ui" line="492"/>
         <source>Prepaid (not reimbursable)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="113"/>
-        <source>Week of:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="21"/>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="27"/>
-        <source>Worksheet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="35"/>
-        <source>Worksheet:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="133"/>
-        <source>Work Date:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="143"/>
-        <source>Project #:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="199"/>
-        <source>Task:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="236"/>
-        <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -947,11 +952,6 @@ Would you like to save them now?</source>
     <message>
         <location filename="../uiforms/timeExpenseSheetItem.ui" line="814"/>
         <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../uiforms/timeExpenseSheetItem.ui" line="52"/>
-        <source>Line #:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1094,11 +1094,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../scripts/timeExpenseSheets.js" line="582"/>
-        <source>You do not have permissions to maintain Worksheet entries</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../scripts/timeExpenseSheets.js" line="513"/>
         <location filename="../uiforms/timeExpenseSheets.ui" line="185"/>
         <source>Approved</source>
@@ -1139,6 +1134,11 @@ Would you like to save them now?</source>
     <message>
         <location filename="../scripts/timeExpenseSheets.js" line="581"/>
         <source>Permissions Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../scripts/timeExpenseSheets.js" line="582"/>
+        <source>You do not have permissions to maintain Worksheet entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
