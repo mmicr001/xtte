@@ -1,4 +1,5 @@
 do $$
+begin
   if NOT EXISTS(select 1
                   from pg_class c
                   join pg_namespace n on n.oid = c.relnamespace
@@ -8,6 +9,7 @@ do $$
     create sequence te.timesheet_seq start 1000;
     grant all on te.timesheet_seq to xtrole;
   end if;
+end
 $$ language plpgsql;
 
 select xt.create_table('tehead', 'te');
@@ -25,7 +27,8 @@ select xt.add_column('tehead','tehead_emp_id', 'integer', '', 'te');
 select xt.add_column('tehead','tehead_warehous_id', 'integer', '', 'te');
 select xt.add_column('tehead','tehead_username', 'text', '', 'te');
 select xt.add_primary_key('tehead', 'tehead_id', 'te');
-select xt.execute_query('alter table te.tehead alter column tehead_username set default geteffectivextuser()');
+
+alter table te.tehead alter column tehead_username set default geteffectivextuser();
 select xt.add_constraint('tehead', 'tehead_tehead_status_check', $$check (tehead_status = any (array['O'::bpchar, 'A'::bpchar, 'C'::bpchar]))$$, 'te');
 
 comment on table te.tehead is 'Time/Expense Worksheet Header';

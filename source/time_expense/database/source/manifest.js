@@ -5,25 +5,8 @@
   "loadOrder": 100,
   "dependencies": ["project"],
   "databaseScripts": [
-    "te/schema/create_te_schema.sql",
-    "te/functions/calcrate.sql",
-    "te/functions/copyitem.sql",
-    "te/functions/invoicesheets.sql",
-    "te/functions/postsheet.sql",
-    "te/functions/sheetstate.sql",
-    "te/functions/unnest.sql",
-    "te/functions/vouchersheet.sql",
-    "te/trigger_functions/tehead.sql",
-    "te/trigger_functions/teitem.sql",
-    "te/trigger_functions/teprj.sql",
     "xt/trigger_functions/teitem_did_change.sql",
-    "te/tables/tecustrate.sql",
-    "te/tables/teemp.sql",
-    "te/tables/teexp.sql",
-    "te/tables/tehead.sql",
     "te/tables/teitem.sql",
-    "te/tables/teprj.sql",
-    "te/tables/teprjtask.sql",
     "xt/functions/te_total_hours.sql",
     "xt/functions/te_total_expenses.sql",
     "xt/functions/te_to_invoice.sql",
@@ -42,7 +25,6 @@
     "xt/views/teheadinfo.sql",
     "xt/views/teiteminfo.sql",
     "xm/javascript/project.sql",
-    "xm/javascript/worksheet.sql",
-    "priv.sql"
+    "xm/javascript/worksheet.sql"
   ]
 }
