@@ -1,13 +1,15 @@
 language: node_js
 node_js:
-  - "0.10.32"
+  - "0.10"
 
 install:
   - "cd .."
   - "git clone git://github.com/xtuple/xtuple.git --recursive"
   - "cd xtuple"
+  - git checkout 4_9_x
   - "bash scripts/install_xtuple.sh -ipn"
-  - "cp test/lib/login_data.js ../xtuple-extensions/test/lib/login_data.js"
+  - npm install
+  - "cp test/lib/login_data.js ../xtte/test/lib/login_data.js"
   - "cd ../xtte"
   - "npm install"
   - "npm run-script test-build"
@@ -23,4 +25,4 @@ script:
   - "npm run-script test-datasource"
   - "cd ../xtte"
   - "npm test"
-  - "../xtuple/node_modules/.bin/jshint source"
+  - ../xtuple/node_modules/.bin/jshint source/time_expense/client source/time_expense/database

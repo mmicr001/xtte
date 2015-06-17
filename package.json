@@ -1,4 +1,3 @@
-
 {
   "author": "xTuple <dev@xtuple.com>",
   "name": "xtte",
@@ -26,6 +25,6 @@
   },
   "scripts": {
     "test-build": "./node_modules/.bin/mocha -R spec test/build/build_app.js",
-    "test": "./node_modules/.bin/mocha -R spec test/lib/test_runner.js",
+    "test": "./node_modules/.bin/mocha -R spec test/lib/test_runner.js"
   }
 }
