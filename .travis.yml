@@ -26,4 +26,4 @@ script:
   - npm run-script test-datasource
   - cd ../xtte
   - npm test
-  - ../xtuple/node_modules/.bin/jshint source/time_expense/client source/time_expense/database
+  - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database

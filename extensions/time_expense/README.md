@@ -6,8 +6,8 @@ To install
 
     ```
     $ cd .../xtuple
-    $ scripts/build_app.js -e ../xtte/source/time_expense/foundation-database
-    $ scripts/build_app.js -e ../xtte/source/time_expense
+    $ scripts/build_app.js -e ../xtte/extensions/time_expense/foundation-database
+    $ scripts/build_app.js -e ../xtte/extensions/time_expense
     ```
   - or create an updater package for just the foundation-database bits:
 

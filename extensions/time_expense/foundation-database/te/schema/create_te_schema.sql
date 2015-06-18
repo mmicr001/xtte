@@ -1,5 +1,5 @@
 select createPkgSchema('te',
-$$Time and Expense system add-on package for xTpule ERP.
+$$Time and Expense system add-on package for xTuple ERP.
 
 This file is part of the xtte package for xTuple ERP: PostBooks Edition,
 a free and open source Enterprise Resource Planning software suite,

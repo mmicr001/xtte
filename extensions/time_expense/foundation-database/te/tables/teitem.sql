@@ -40,8 +40,6 @@ select xt.add_constraint('teitem', 'teitem_teitem_vodist_id_fkey','foreign key (
 DO $$
 declare
   _t    record;
-  _schema       text;
-  _view         text;
 begin
   if exists(select 1
               from information_schema.columns
@@ -65,8 +63,8 @@ begin
            and pg_attribute.attname = 'teitem_prjtask_id' loop
       execute format('drop view %I.%I cascade;', _t.nspname, _t.relname);
     end loop;
+    alter table te.teitem alter column teitem_prjtask_id set data type integer;
   end if;
-  alter table te.teitem alter column teitem_prjtask_id set data type integer;
 end
 $$ language plpgsql;
 select xt.add_constraint('teitem', 'teitem_teitem_prjtask_id_fkey','foreign key (teitem_prjtask_id) references prjtask (prjtask_id) ', 'te');

@@ -38,7 +38,7 @@ var buildAll = require('../../../xtuple/scripts/lib/build_all'),
       it('should build the ' + extension + ' extension', function (done) {
         buildAll.build({
           database: databaseName,
-          extension: path.join(__dirname, "../../source", extension)
+          extension: path.join(__dirname, "../../extensions", extension)
         }, function (err, res) {
           assert.isNull(err);
           done();

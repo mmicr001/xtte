@@ -1,12 +1,13 @@
 {
   "name": "time_expense",
-  "version": "",
+  "version": "2.2.1",
   "comment": "Time Expense Management extension",
   "loadOrder": 100,
   "defaultSchema": "te",
   "dependencies": ["project"],
   "databaseScripts": [
     "te/schema/create_te_schema.sql",
+    "version.sql",
 
     "priv.sql",
 
