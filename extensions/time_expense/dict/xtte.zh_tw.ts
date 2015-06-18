@@ -2,6 +2,20 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>ARAging</name>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>PurchaseOrder</name>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>configureCRM</name>
     <message>
         <source>Project Labor And Overhead:</source>
@@ -10,6 +24,98 @@
 </context>
 <context>
     <name>dspTimeExpenseHistory</name>
+    <message>
+        <source>Item Group</source>
+        <translation type="unfinished">物品組群</translation>
+    </message>
+    <message>
+        <source>Employee Group</source>
+        <translation type="unfinished">員工組群</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">時間</translation>
+    </message>
+    <message>
+        <source>Start Date</source>
+        <translation type="unfinished">開始日期</translation>
+    </message>
+    <message>
+        <source>Customer Type</source>
+        <translation type="unfinished">客戶類型</translation>
+    </message>
+    <message>
+        <source>Class Code</source>
+        <translation type="unfinished">等級碼</translation>
+    </message>
+    <message>
+        <source>Expense</source>
+        <translation type="unfinished">支出</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">列印</translation>
+    </message>
+    <message>
+        <source>View...</source>
+        <translation type="unfinished">檢視 ...</translation>
+    </message>
+    <message>
+        <source>Employee</source>
+        <translation type="unfinished">員工</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">編輯 ...</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished">類型</translation>
+    </message>
+    <message>
+        <source>Query</source>
+        <translation type="unfinished">查詢</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">已完結</translation>
+    </message>
+    <message>
+        <source>End Date</source>
+        <translation type="unfinished">結束日期</translation>
+    </message>
+    <message>
+        <source>Customer Group</source>
+        <translation type="unfinished">客戶組群</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">專案</translation>
+    </message>
+    <message>
+        <source>Customer</source>
+        <translation type="unfinished">客戶</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">狀態</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">描述</translation>
+    </message>
+    <message>
+        <source>Cust. Name</source>
+        <translation type="unfinished">客戶名稱</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation type="unfinished">數量</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">物品</translation>
+    </message>
     <message>
         <source>Sheet #</source>
         <translation type="unfinished"></translation>
@@ -20,14 +126,6 @@
     </message>
     <message>
         <source>Work Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -51,23 +149,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cust. Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>PO</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Qty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -79,67 +161,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>End Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employee</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employee Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customer Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Customer Type Pattern</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Customer Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Class Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Class Code Pattern</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -151,23 +177,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Worksheet History</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Query</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -282,6 +296,10 @@
 <context>
     <name>teexpense</name>
     <message>
+        <source>Expense Category</source>
+        <translation type="unfinished">支出分類</translation>
+    </message>
+    <message>
         <source>Expense Item Setup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -293,20 +311,104 @@
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Expense Category</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>timeExpenseSheet</name>
     <message>
+        <source>Notes</source>
+        <translation type="unfinished">註記</translation>
+    </message>
+    <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">類型</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Extended</source>
+        <translation type="unfinished">小計</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">物品</translation>
     </message>
     <message>
         <source>Line #</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">項目編號</translation>
+    </message>
+    <message>
+        <source>Delete...</source>
+        <translation type="unfinished">刪除 ...</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation type="unfinished">編輯 &amp;E</translation>
+    </message>
+    <message>
+        <source>View...</source>
+        <translation type="unfinished">檢視 ...</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">已完結</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">錯誤</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">編輯 ...</translation>
+    </message>
+    <message>
+        <source>Cust. Name</source>
+        <translation type="unfinished">客戶名稱</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">時間</translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished">小時</translation>
+    </message>
+    <message>
+        <source>Expense</source>
+        <translation type="unfinished">支出</translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished">文件</translation>
+    </message>
+    <message>
+        <source>Total Cost</source>
+        <translation type="unfinished">總成本</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">刪除 &amp;D</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="unfinished">檢視 &amp;V</translation>
+    </message>
+    <message>
+        <source>&amp;New</source>
+        <translation type="unfinished">新增 &amp;N</translation>
+    </message>
+    <message>
+        <source>Employee:</source>
+        <translation type="unfinished">員工:</translation>
+    </message>
+    <message>
+        <source>Site:</source>
+        <translation type="unfinished">所在地:</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">描述</translation>
     </message>
     <message>
         <source>Sheet Date</source>
@@ -337,31 +439,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cust. Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>PO</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -373,27 +451,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Extended</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>timeExpenseSheet.js exception: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>set exception: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -457,27 +519,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Total Cost</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>fillList exception: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Approved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -505,43 +551,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>S&amp;heet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Week of Date:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Site:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employee:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -552,15 +566,89 @@
 <context>
     <name>timeExpenseSheetItem</name>
     <message>
-        <source>Prev</source>
-        <translation type="unfinished"></translation>
+        <source>Employee:</source>
+        <translation type="unfinished">員工:</translation>
     </message>
     <message>
-        <source>Next</source>
-        <translation type="unfinished"></translation>
+        <source>Expense</source>
+        <translation type="unfinished">支出</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;You have made some changes which have not yet been saved!
+Would you like to save them now?</source>
+        <translation type="unfinished">&lt;p&gt;你做了些改變而還沒有儲存
+你現在要儲存嗎?</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">新增</translation>
+    </message>
+    <message>
+        <source>Unsaved Changed</source>
+        <translation type="unfinished">未儲存變更</translation>
     </message>
     <message>
         <source>Default</source>
+        <translation type="unfinished">預設</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">時間</translation>
+    </message>
+    <message>
+        <source>Line #:</source>
+        <translation type="unfinished">項目編號:</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">註記</translation>
+    </message>
+    <message>
+        <source>Total Cost:</source>
+        <translation type="unfinished">總成本</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation type="unfinished">總計:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">類型:</translation>
+    </message>
+    <message>
+        <source>Project #:</source>
+        <translation type="unfinished">專案編號:</translation>
+    </message>
+    <message>
+        <source>Task</source>
+        <translation type="unfinished">工作</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">大綱</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished">下一筆</translation>
+    </message>
+    <message>
+        <source>Employee</source>
+        <translation type="unfinished">員工</translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished">小時</translation>
+    </message>
+    <message>
+        <source>Item Required</source>
+        <translation type="unfinished">需要物品</translation>
+    </message>
+    <message>
+        <source>Unit Cost:</source>
+        <translation type="unfinished">單位成本:</translation>
+    </message>
+    <message>
+        <source>Prev</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -580,19 +668,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Work Date Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Project Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -624,32 +704,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unit Cost:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The Employee is not a Vendor, this expense cannot be vouchered.  Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unsaved Changed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&lt;p&gt;You have made some changes which have not yet been saved!&lt;/p&gt;&lt;p&gt;Would you like to save them now?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;You have made some changes which have not yet been saved!
-Would you like to save them now?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -661,10 +720,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Line #:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Week of:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -673,27 +728,11 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Project #:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Task:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>  Cust. PO#:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Total:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -713,18 +752,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Total Cost:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Task</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Planned Hours:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -741,10 +768,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Employee</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Day Total:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -752,31 +775,83 @@ Would you like to save them now?</source>
         <source>Worksheet Total:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>timeExpenseSheets</name>
     <message>
-        <source>Sheet#</source>
-        <translation type="unfinished"></translation>
+        <source>Earliest</source>
+        <translation type="unfinished">最早</translation>
     </message>
     <message>
-        <source>Date</source>
-        <translation type="unfinished"></translation>
+        <source>No</source>
+        <translation type="unfinished">否</translation>
+    </message>
+    <message>
+        <source>Latest</source>
+        <translation type="unfinished">最晚</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">已完結</translation>
+    </message>
+    <message>
+        <source>Voucher</source>
+        <translation type="unfinished">憑單</translation>
     </message>
     <message>
         <source>Employee</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">員工</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation type="unfinished">日期</translation>
+    </message>
+    <message>
+        <source>Posted</source>
+        <translation type="unfinished">已過帳</translation>
+    </message>
+    <message>
+        <source>Print</source>
+        <translation type="unfinished">列印</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">刪除</translation>
+    </message>
+    <message>
+        <source>View...</source>
+        <translation type="unfinished">檢視 ...</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">編輯 ...</translation>
     </message>
     <message>
         <source>Status</source>
+        <translation type="unfinished">狀態</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation type="unfinished">N/A</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">新增</translation>
+    </message>
+    <message>
+        <source>Employees</source>
+        <translation type="unfinished">員工</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">全部</translation>
+    </message>
+    <message>
+        <source>Query</source>
+        <translation type="unfinished">查詢</translation>
+    </message>
+    <message>
+        <source>Sheet#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -796,26 +871,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Posted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Approve</source>
         <translation type="unfinished"></translation>
     </message>
@@ -829,10 +884,6 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>Invoice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voucher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -868,23 +919,11 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>N/A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -900,23 +939,7 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Earliest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Latest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Worksheets</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employees</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -929,10 +952,6 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>When Processing:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -953,10 +972,6 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>Approve All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

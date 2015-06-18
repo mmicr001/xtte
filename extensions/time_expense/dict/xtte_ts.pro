@@ -7,34 +7,65 @@ TARGET = xtte_ts
 DEPENDPATH += ../../../resources . ../uiforms
 INCLUDEPATH += .
 
-# Input
-FORMS += ../uiforms/dspTimeExpenseHistory.ui \
-         ../uiforms/projectGantt.ui \
-         ../uiforms/tebilling.ui \
-         ../uiforms/tecustomer.ui \
-         ../uiforms/teexpense.ui \
-         ../uiforms/timeExpenseSheet.ui \
-         ../uiforms/timeExpenseSheetByProject.ui \
-         ../uiforms/timeExpenseSheetItem.ui \
-         ../uiforms/timeExpenseSheets.ui
-TRANSLATIONS += xtte.base.ts
-SOURCES += \
-../scripts/configureCRM.js \
-../scripts/customer.js \
-../scripts/dspTimeExpenseHistory.js \
-../scripts/employee.js \
-../scripts/initMenu.js \
-../scripts/item.js \
-../scripts/jsGantt.js \
-../scripts/jsGanttCSS.js \
-../scripts/project.js \
-../scripts/projectGantt.js \
-../scripts/projects.js \
-../scripts/task.js \
-../scripts/tebilling.js \
-../scripts/timeExpenseSheet.js \
-../scripts/timeExpenseSheetItem.js \
-../scripts/timeExpenseSheets.js \
-../scripts/xtte.js \
+FORMDIR   = ../foundation-database/te/tables/pkguiform
+SCRIPTDIR = ../foundation-database/te/tables/pkgscript
 
-TRANSLATIONS += xtte.base.ts
+# Input
+FORMS += $$FORMDIR/dspTimeExpenseHistory.ui \
+         $$FORMDIR/projectGantt.ui \
+         $$FORMDIR/tebilling.ui \
+         $$FORMDIR/tecustomer.ui \
+         $$FORMDIR/teexpense.ui \
+         $$FORMDIR/timeExpenseSheet.ui \
+         $$FORMDIR/timeExpenseSheetByProject.ui \
+         $$FORMDIR/timeExpenseSheetItem.ui \
+         $$FORMDIR/timeExpenseSheets.ui
+
+SOURCES += \
+         $$SCRIPTDIR/configureCRM.js \
+         $$SCRIPTDIR/customer.js \
+         $$SCRIPTDIR/dspTimeExpenseHistory.js \
+         $$SCRIPTDIR/employee.js \
+         $$SCRIPTDIR/initMenu.js \
+         $$SCRIPTDIR/item.js \
+         $$SCRIPTDIR/jsGantt.js \
+         $$SCRIPTDIR/jsGanttCSS.js \
+         $$SCRIPTDIR/project.js \
+         $$SCRIPTDIR/projectGantt.js \
+         $$SCRIPTDIR/projects.js \
+         $$SCRIPTDIR/task.js \
+         $$SCRIPTDIR/tebilling.js \
+         $$SCRIPTDIR/timeExpenseSheet.js \
+         $$SCRIPTDIR/timeExpenseSheetItem.js \
+         $$SCRIPTDIR/timeExpenseSheets.js \
+         $$SCRIPTDIR/xtte.js
+
+TRANSLATIONS += xtte.base.ts    \
+                xtte.ar_eg.ts   \
+                xtte.bg.ts      \
+                xtte.cn.ts      \
+                xtte.cs.ts      \
+                xtte.de.ts      \
+                xtte.de_at.ts   \
+                xtte.de_ch.ts   \
+                xtte.en_ca.ts   \
+                xtte.es.ts      \
+                xtte.es_ar.ts   \
+                xtte.es_mx.ts   \
+                xtte.et_ee.ts   \
+                xtte.fr.ts      \
+                xtte.fr_ca.ts   \
+                xtte.hr.ts      \
+                xtte.it.ts      \
+                xtte.jp.ts      \
+                xtte.nl.ts      \
+                xtte.no.ts      \
+                xtte.pl.ts      \
+                xtte.pt.ts      \
+                xtte.pt_br.ts   \
+                xtte.ru.ts      \
+                xtte.sk.ts      \
+                xtte.tr.ts      \
+                xtte.ua.ts      \
+                xtte.zh_hk.ts   \
+                xtte.zh_tw.ts

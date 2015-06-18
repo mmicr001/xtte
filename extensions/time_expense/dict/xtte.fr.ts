@@ -2,6 +2,20 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>ARAging</name>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
+    <name>PurchaseOrder</name>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>configureCRM</name>
     <message>
         <source>Project Labor And Overhead:</source>
@@ -10,6 +24,90 @@
 </context>
 <context>
     <name>dspTimeExpenseHistory</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">Fermé</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Approuvé</translation>
+    </message>
+    <message>
+        <source>Customer Group</source>
+        <translation type="unfinished">Groupe de Clients</translation>
+    </message>
+    <message>
+        <source>Qty</source>
+        <translation type="unfinished">Qté</translation>
+    </message>
+    <message>
+        <source>Class Code</source>
+        <translation type="unfinished">Code de Classe</translation>
+    </message>
+    <message>
+        <source>View...</source>
+        <translation type="unfinished">Visualiser...</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">Heure</translation>
+    </message>
+    <message>
+        <source>Start Date</source>
+        <translation type="unfinished">Début le</translation>
+    </message>
+    <message>
+        <source>End Date</source>
+        <translation type="unfinished">Date de Fin</translation>
+    </message>
+    <message>
+        <source>Expense</source>
+        <translation type="unfinished">Charges</translation>
+    </message>
+    <message>
+        <source>Employee</source>
+        <translation type="unfinished">Salarié</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation type="unfinished">Projet</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">Etat</translation>
+    </message>
+    <message>
+        <source>Customer</source>
+        <translation type="unfinished">Client</translation>
+    </message>
+    <message>
+        <source>Customer Type</source>
+        <translation type="unfinished">Type de Client</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Description</translation>
+    </message>
+    <message>
+        <source>Item Group</source>
+        <translation type="unfinished">Groupe Articles</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">Modifier...</translation>
+    </message>
+    <message>
+        <source>Query</source>
+        <translation type="unfinished">Requête</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Article</translation>
+    </message>
     <message>
         <source>Sheet #</source>
         <translation type="unfinished"></translation>
@@ -24,10 +122,6 @@
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -59,18 +153,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Qty</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Billable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -79,39 +161,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>End Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Employee</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Employee Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Customer Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -119,27 +169,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Customer Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Item Group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Class Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Class Code Pattern</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -147,23 +177,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Approved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Worksheet History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -226,11 +240,11 @@
 <context>
     <name>projectGantt</name>
     <message>
-        <source>Project Gantt</source>
-        <translation type="unfinished"></translation>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
     </message>
     <message>
-        <source>Close</source>
+        <source>Project Gantt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -282,6 +296,10 @@
 <context>
     <name>teexpense</name>
     <message>
+        <source>Expense Category</source>
+        <translation type="unfinished">Catégorie de Dépenses</translation>
+    </message>
+    <message>
         <source>Expense Item Setup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -293,13 +311,85 @@
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Expense Category</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>timeExpenseSheet</name>
+    <message>
+        <source>Extended</source>
+        <translation type="unfinished">Total</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Notes</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">&amp;Supprimer</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">Modifier...</translation>
+    </message>
+    <message>
+        <source>Delete...</source>
+        <translation type="unfinished">Supprimer...</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished">Description</translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation type="unfinished">Documents</translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished">Article</translation>
+    </message>
+    <message>
+        <source>Total Cost</source>
+        <translation type="unfinished">Coût Total</translation>
+    </message>
+    <message>
+        <source>Expense</source>
+        <translation type="unfinished">Charges</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">Heure</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished">Erreur</translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished">Heures</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Approuvé</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">Fermé</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="unfinished">&amp;Visualiser</translation>
+    </message>
+    <message>
+        <source>&amp;New</source>
+        <translation type="unfinished">Nouveau</translation>
+    </message>
+    <message>
+        <source>Print on Save</source>
+        <translation type="unfinished">Enregistrer l&apos;impression</translation>
+    </message>
     <message>
         <source>Type</source>
         <translation type="unfinished"></translation>
@@ -345,35 +435,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Billable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Extended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -385,16 +451,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>View...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Visualiser...</translation>
     </message>
     <message>
         <source>populateMenu exception: </source>
@@ -457,27 +515,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Total Cost</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>fillList exception: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Approved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -505,10 +543,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>S&amp;heet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -525,42 +559,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Documents</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Print on Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>timeExpenseSheetItem</name>
     <message>
-        <source>Prev</source>
-        <translation type="unfinished"></translation>
+        <source>Hours</source>
+        <translation type="unfinished">Heures</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nouveau</translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished">Notes</translation>
+    </message>
+    <message>
+        <source>Expense</source>
+        <translation type="unfinished">Charges</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation type="unfinished">Total:</translation>
+    </message>
+    <message>
+        <source>Employee</source>
+        <translation type="unfinished">Salarié</translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished">Résumé</translation>
+    </message>
+    <message>
+        <source>Task</source>
+        <translation type="unfinished">Tâche</translation>
+    </message>
+    <message>
+        <source>Qty:</source>
+        <translation type="unfinished">Qté:</translation>
+    </message>
+    <message>
+        <source>Unit Cost:</source>
+        <translation type="unfinished">Coût Unitaire:</translation>
+    </message>
+    <message>
+        <source>Unsaved Changed</source>
+        <translation type="unfinished">Changements Non Enregistrés</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished">Heure</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Prochain</translation>
     </message>
     <message>
         <source>Default</source>
+        <translation type="unfinished">Par défaut</translation>
+    </message>
+    <message>
+        <source>Total Cost:</source>
+        <translation type="unfinished">Coût total :</translation>
+    </message>
+    <message>
+        <source>Prev</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -577,10 +643,6 @@
     </message>
     <message>
         <source>&lt;p&gt;Would you like to update the existing rate?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -620,19 +682,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Qty:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unit Cost:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The Employee is not a Vendor, this expense cannot be vouchered.  Do you want to continue?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unsaved Changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -642,14 +692,6 @@
     <message>
         <source>&lt;p&gt;You have made some changes which have not yet been saved!
 Would you like to save them now?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Expense</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -689,10 +731,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Total:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Employee:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -713,18 +751,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Total Cost:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Task</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Planned Hours:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -741,10 +767,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Employee</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Day Total:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -752,31 +774,95 @@ Would you like to save them now?</source>
         <source>Worksheet Total:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Hours</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Notes</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>timeExpenseSheets</name>
     <message>
-        <source>Sheet#</source>
-        <translation type="unfinished"></translation>
+        <source>View...</source>
+        <translation type="unfinished">Visualiser...</translation>
+    </message>
+    <message>
+        <source>Approved</source>
+        <translation type="unfinished">Approuvé</translation>
+    </message>
+    <message>
+        <source>Process</source>
+        <translation type="unfinished">Traiter</translation>
+    </message>
+    <message>
+        <source>Selected:</source>
+        <translation type="unfinished">Sélectionné:</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished">Tous</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nouveau</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Date</translation>
+    </message>
+    <message>
+        <source>Invoiced</source>
+        <translation type="unfinished">Facturé</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished">Fermé</translation>
+    </message>
+    <message>
+        <source>Edit...</source>
+        <translation type="unfinished">Modifier...</translation>
+    </message>
+    <message>
+        <source>Query</source>
+        <translation type="unfinished">Requête</translation>
     </message>
     <message>
         <source>Employee</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Salarié</translation>
     </message>
     <message>
         <source>Status</source>
+        <translation type="unfinished">Etat</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished">Oui</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished">Non</translation>
+    </message>
+    <message>
+        <source>Latest</source>
+        <translation type="unfinished">Au Plus Tard</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">Supprimer</translation>
+    </message>
+    <message>
+        <source>Invoice</source>
+        <translation type="unfinished">Facture</translation>
+    </message>
+    <message>
+        <source>Earliest</source>
+        <translation type="unfinished">Au Plus Tôt</translation>
+    </message>
+    <message>
+        <source>Voucher</source>
+        <translation type="unfinished">Pièce Justificative</translation>
+    </message>
+    <message>
+        <source>Sheet#</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -785,10 +871,6 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>To Voucher</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invoiced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -804,35 +886,11 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>View...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Approve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Unapprove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invoice</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voucher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -864,23 +922,7 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Approved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -900,27 +942,11 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Earliest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Latest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Worksheets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Employees</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Selected:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -932,10 +958,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
@@ -944,19 +966,11 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Process</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Process Approved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Approve All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Query</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
