@@ -103,6 +103,13 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
         tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
       }
 
+      if (status == 'C')
+      {
+        tmpact = pMenu.addAction(qsTr("Reopen"));
+        tmpact.enabled = privileges.check("ReopenTimeExpense");
+        tmpact.triggered.connect(xtte.timeExpenseSheets.reopenSheet);
+      }
+
       if ((xtte.timeExpenseSheets.canProcess("invoiced", selected)) ||
           (xtte.timeExpenseSheets.canProcess("vouchered", selected)) ||
           (xtte.timeExpenseSheets.canProcess("posted", selected)))
@@ -427,7 +434,7 @@ xtte.timeExpenseSheets.deleteSheet = function()
 
 xtte.timeExpenseSheets.closeSheet = function()
 {
-  var msg = qsTr("This action can not be undone. Are you sure you want to close this Worksheet?");
+  var msg = qsTr("Are you sure you want to close this Worksheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
       QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
   {
@@ -435,6 +442,21 @@ xtte.timeExpenseSheets.closeSheet = function()
     params.tehead_id = _sheets.id();    
 
     q = toolbox.executeDbQuery("timeexpensesheets", "close", params );  
+    if (xtte.errorCheck(q))
+      xtte.timeExpenseSheets.fillList(); 
+  }
+}
+
+xtte.timeExpenseSheets.reopenSheet = function()
+{
+  var msg = qsTr("Are you sure you want to reopen this Worksheet?");
+  if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
+      QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
+  {
+    var params   = new Object();
+    params.tehead_id = _sheets.id();    
+
+    q = toolbox.executeDbQuery("timeexpensesheets", "reopen", params );  
     if (xtte.errorCheck(q))
       xtte.timeExpenseSheets.fillList(); 
   }
