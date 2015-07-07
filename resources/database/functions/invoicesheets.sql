@@ -4,6 +4,18 @@ CREATE OR REPLACE FUNCTION te.invoicesheets(integer[]) RETURNS integer AS $$
 DECLARE
 pHeadIDs ALIAS FOR $1;
 
+BEGIN
+  RETURN te.invoicesheets(pHeadIDs, CURRENT_DATE);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION te.invoicesheets(integer[], date) RETURNS integer AS $$
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- See www.xtuple.com/CPAL for the full text of the software license.
+DECLARE
+pHeadIDs ALIAS FOR $1;
+pInvcdate ALIAS FOR $2;
+
 _invcnum text;
 _invcheadid integer;
 _invcitemid integer;
@@ -35,7 +47,7 @@ BEGIN
 
          INSERT INTO invchead
          SELECT _invcheadid, cust_id, -1, '', current_date, false, false, _invcnum,
-           current_date, current_date, _s.teitem_po, '', '', cust_name, COALESCE(addr_line1,''),
+           COALESCE(pInvcdate, current_date), current_date, _s.teitem_po, '', '', cust_name, COALESCE(addr_line1,''),
            COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
            COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
            '', '', '', '', '', '', '', '', cust_salesrep_id, salesrep_commission, cust_terms_id,
