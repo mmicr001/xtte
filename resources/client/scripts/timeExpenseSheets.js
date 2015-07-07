@@ -8,6 +8,8 @@
  * to be bound by its terms.
  */
 
+debugger;
+
 include("xtte");
 
 // Define Variables
@@ -339,13 +341,26 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
   toolbox.executeBegin();
   if (invoice)
   { 
+    // Prompt for invoice date
+    var invcdate = mainwindow.dbDate();
+    var params = new Object();
+    params.label = "Invoice Date";
+    var newdlg = toolbox.openWindow("XDateInputDialog", mywindow, Qt.ApplicationModal, Qt.Dialog);
+    toolbox.lastWindow().set(params);
+    var returnval = newdlg.exec();
+    if (returnval == 1)
+    {
+      var invcdate = newdlg.getDate();
+    }
+
     // Create an array so invoices can be consolidated
     var ids = [];
     for (var i = 0; i < selected.length; i++)
       ids[i] = selected[i].id();
       
     var params   = new Object();
-    params.tehead_ids = ids;    
+    params.tehead_ids = ids;
+    params.invchead_invcdate = invcdate;
 
     q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );        
     if (!xtte.errorCheck(q))
