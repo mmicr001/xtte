@@ -1,21 +1,17 @@
-CREATE OR REPLACE FUNCTION te.invoicesheets(integer[]) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[]) RETURNS integer AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
-DECLARE
-pHeadIDs ALIAS FOR $1;
 
 BEGIN
   RETURN te.invoicesheets(pHeadIDs, CURRENT_DATE);
 END;
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION te.invoicesheets(integer[], date) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[],
+                                            pInvcdate date) RETURNS integer AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-pHeadIDs ALIAS FOR $1;
-pInvcdate ALIAS FOR $2;
-
 _invcnum text;
 _invcheadid integer;
 _invcitemid integer;
@@ -46,13 +42,42 @@ BEGIN
          _linenum := 1;
 
          INSERT INTO invchead
-         SELECT _invcheadid, cust_id, -1, '', current_date, false, false, _invcnum,
-           COALESCE(pInvcdate, current_date), current_date, _s.teitem_po, '', '', cust_name, COALESCE(addr_line1,''),
-           COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
-           COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
-           '', '', '', '', '', '', '', '', cust_salesrep_id, salesrep_commission, cust_terms_id,
-           0, 0, '', -1, 0, '', '', COALESCE(addr_country,''), '', _s.prj_id, 
-           _s.teitem_curr_id, current_date, false, null, null, null, null, null, cust_taxzone_id
+               (invchead_id, invchead_cust_id, invchead_shipto_id,
+                invchead_ordernumber, invchead_orderdate, invchead_posted,
+                invchead_printed, invchead_invcnumber, invchead_invcdate,
+                invchead_shipdate, invchead_ponumber, invchead_shipvia,
+                invchead_fob, invchead_billto_name, invchead_billto_address1,
+                invchead_billto_address2, invchead_billto_address3, invchead_billto_city,
+                invchead_billto_state, invchead_billto_zipcode, invchead_billto_phone,
+                invchead_shipto_name, invchead_shipto_address1, invchead_shipto_address2,
+                invchead_shipto_address3, invchead_shipto_city, invchead_shipto_state,
+                invchead_shipto_zipcode, invchead_shipto_phone, invchead_salesrep_id,
+                invchead_commission, invchead_terms_id, invchead_freight,
+                invchead_misc_amount, invchead_misc_descrip, invchead_misc_accnt_id,
+                invchead_payment, invchead_paymentref, invchead_notes,
+                invchead_billto_country, invchead_shipto_country, invchead_prj_id,
+                invchead_curr_id, invchead_gldistdate, invchead_recurring,
+                invchead_recurring_interval, invchead_recurring_type, invchead_recurring_until,
+                invchead_recurring_invchead_id, invchead_shipchrg_id, invchead_taxzone_id,
+                invchead_void, invchead_saletype_id, invchead_shipzone_id)
+         SELECT _invcheadid, cust_id, -1,
+                '', current_date, false,
+                false, _invcnum, COALESCE(pInvcdate, current_date),
+                current_date, _s.teitem_po, '',
+                '', cust_name, COALESCE(addr_line1,''),
+                COALESCE(addr_line2,''), COALESCE(addr_line3,''), COALESCE(addr_city,''),
+                COALESCE(addr_state,''), COALESCE(addr_postalcode,''), cntct_phone, 
+                '', '', '',
+                '', '', '',
+                '', '', cust_salesrep_id,
+                salesrep_commission, cust_terms_id, 0,
+                0, '', -1,
+                0, '', '',
+                COALESCE(addr_country,''), '', _s.prj_id, 
+                _s.teitem_curr_id, current_date, false,
+                null, null, null,
+                null, null, cust_taxzone_id,
+                false, null, null
          FROM custinfo
            JOIN salesrep ON (cust_salesrep_id=salesrep_id)
            LEFT OUTER JOIN cntct ON (cust_cntct_id=cntct_id)
@@ -94,13 +119,22 @@ BEGIN
             _invcitemid := nextval('invcitem_invcitem_id_seq');
 
             INSERT INTO invcitem
-            SELECT 
-              _invcitemid, _invcheadid, _linenum, _t.teitem_item_id,
-              _t.tehead_warehous_id, '', '', '', _t.teitem_qty, _t.teitem_qty, _t.teitem_rate,
-              _t.teitem_rate, _t.teitem_notes, -1, getItemTaxType(item_id, _t.cust_taxzone_id), 
-              _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
-              _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
-              null
+                  (invcitem_id, invcitem_invchead_id, invcitem_linenumber,
+                   invcitem_item_id, invcitem_warehous_id, invcitem_custpn,
+                   invcitem_number, invcitem_descrip, invcitem_ordered,
+                   invcitem_billed, invcitem_custprice, invcitem_price,
+                   invcitem_notes, invcitem_salescat_id, invcitem_taxtype_id,
+                   invcitem_qty_uom_id, invcitem_qty_invuomratio,
+                   invcitem_price_uom_id, invcitem_price_invuomratio,
+                   invcitem_coitem_id, invcitem_updateinv, invcitem_rev_accnt_id)
+            SELECT _invcitemid, _invcheadid, _linenum,
+                   _t.teitem_item_id, _t.tehead_warehous_id, '',
+                   '', '', _t.teitem_qty,
+                   _t.teitem_qty, _t.teitem_rate, _t.teitem_rate,
+                   _t.teitem_notes, -1, getItemTaxType(item_id, _t.cust_taxzone_id), 
+                   _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
+                   _t.teitem_uom_id, itemuomtouomratio(item_id, _t.teitem_uom_id, item_inv_uom_id),
+                   null, false, null
             FROM item
             WHERE (item_id=_t.teitem_item_id);
 
@@ -114,4 +148,4 @@ BEGIN
 
 RETURN 1;
 END;
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE plpgsql;
