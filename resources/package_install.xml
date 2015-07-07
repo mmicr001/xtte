@@ -65,6 +65,10 @@
    Allowed to Maintain Time/Exp Sheets
   </loadpriv>
 
+  <loadpriv name="ReopenTimeExpense" module="TE">
+   Allowed to Reopen Time/Exp Sheets
+  </loadpriv>
+
   <loadpriv name="CanViewRates" module="TE">
    Allowed to view rates in the Time Entries
   </loadpriv>
@@ -191,6 +195,7 @@
   <loadmetasql file="client/metasql/timeexpensesheets-detail.mql">Time and Expense package</loadmetasql>
   <loadmetasql file="client/metasql/timeexpensesheets-invoice.mql">Time and Expense package</loadmetasql>
   <loadmetasql file="client/metasql/timeexpensesheets-post.mql">Time and Expense package</loadmetasql>
+  <loadmetasql file="client/metasql/timeexpensesheets-reopen.mql">Time and Expense package</loadmetasql>
   <loadmetasql file="client/metasql/timeexpensesheets-unapprove.mql">Time and Expense package</loadmetasql>
   <loadmetasql file="client/metasql/timeexpensesheets-voucher.mql">Time and Expense package</loadmetasql>
 
