@@ -5,9 +5,8 @@ node_js:
 
 install:
   - cd ..
-  - git clone git://github.com/xtuple/xtuple.git --recursive
+  - git clone -b 4_10_x git://github.com/xtuple/xtuple.git --recursive
   - cd xtuple
-  - git checkout 4_9_x
   - bash scripts/install_xtuple.sh -ipn
   - npm install
   - cp test/lib/login_data.js ../xtte/test/lib/login_data.js
