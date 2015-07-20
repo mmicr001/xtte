@@ -135,6 +135,7 @@
   <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-detail.mql" />
   <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-invoice.mql" />
   <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-post.mql" />
+  <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-reopen.mql" />
   <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-unapprove.mql" />
   <loadmetasql file="foundation-database/te/tables/pkgmetasql/timeexpensesheets-voucher.mql" />
 

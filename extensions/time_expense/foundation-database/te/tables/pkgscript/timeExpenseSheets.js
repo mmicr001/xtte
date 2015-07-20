@@ -8,6 +8,8 @@
  * to be bound by its terms.
  */
 
+debugger;
+
 include("xtte");
 
 // Define Variables
@@ -101,6 +103,13 @@ xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
         tmpact = pMenu.addAction(qsTr("Close"));
         tmpact.enabled = privileges.check("MaintainTimeExpense");
         tmpact.triggered.connect(xtte.timeExpenseSheets.closeSheet);
+      }
+
+      if (status == 'C')
+      {
+        tmpact = pMenu.addAction(qsTr("Reopen"));
+        tmpact.enabled = privileges.check("ReopenTimeExpense");
+        tmpact.triggered.connect(xtte.timeExpenseSheets.reopenSheet);
       }
 
       if ((xtte.timeExpenseSheets.canProcess("invoiced", selected)) ||
@@ -339,13 +348,26 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
   toolbox.executeBegin();
   if (invoice)
   { 
+    // Prompt for invoice date
+    var invcdate = mainwindow.dbDate();
+    var params = new Object();
+    params.label = "Invoice Date";
+    var newdlg = toolbox.openWindow("XDateInputDialog", mywindow, Qt.ApplicationModal, Qt.Dialog);
+    toolbox.lastWindow().set(params);
+    var returnval = newdlg.exec();
+    if (returnval == 1)
+    {
+      var invcdate = newdlg.getDate();
+    }
+
     // Create an array so invoices can be consolidated
     var ids = [];
     for (var i = 0; i < selected.length; i++)
       ids[i] = selected[i].id();
       
     var params   = new Object();
-    params.tehead_ids = ids;    
+    params.tehead_ids = ids;
+    params.invchead_invcdate = invcdate;
 
     q = toolbox.executeDbQuery("timeexpensesheets", "invoice", params );        
     if (!xtte.errorCheck(q))
@@ -427,7 +449,7 @@ xtte.timeExpenseSheets.deleteSheet = function()
 
 xtte.timeExpenseSheets.closeSheet = function()
 {
-  var msg = qsTr("This action can not be undone. Are you sure you want to close this Worksheet?");
+  var msg = qsTr("Are you sure you want to close this Worksheet?");
   if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
       QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
   {
@@ -435,6 +457,21 @@ xtte.timeExpenseSheets.closeSheet = function()
     params.tehead_id = _sheets.id();    
 
     q = toolbox.executeDbQuery("timeexpensesheets", "close", params );  
+    if (xtte.errorCheck(q))
+      xtte.timeExpenseSheets.fillList(); 
+  }
+}
+
+xtte.timeExpenseSheets.reopenSheet = function()
+{
+  var msg = qsTr("Are you sure you want to reopen this Worksheet?");
+  if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
+      QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.Yes)
+  {
+    var params   = new Object();
+    params.tehead_id = _sheets.id();    
+
+    q = toolbox.executeDbQuery("timeexpensesheets", "reopen", params );  
     if (xtte.errorCheck(q))
       xtte.timeExpenseSheets.fillList(); 
   }

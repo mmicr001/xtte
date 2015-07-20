@@ -79,6 +79,7 @@
     "te/tables/pkgmetasql/timeexpensesheets-detail.mql",
     "te/tables/pkgmetasql/timeexpensesheets-invoice.mql",
     "te/tables/pkgmetasql/timeexpensesheets-post.mql",
+    "te/tables/pkgmetasql/timeexpensesheets-reopen.mql",
     "te/tables/pkgmetasql/timeexpensesheets-unapprove.mql",
     "te/tables/pkgmetasql/timeexpensesheets-voucher.mql",
 

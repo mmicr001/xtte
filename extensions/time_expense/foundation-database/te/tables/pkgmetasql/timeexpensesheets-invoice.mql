@@ -11,5 +11,5 @@ SELECT te.invoiceSheets(ARRAY[
      <? endif ?>
     <? value("tehead_ids") ?>
    <? endforeach ?>
-]
+],<? value("invchead_invcdate") ?>::DATE
 );

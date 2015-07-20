@@ -12,7 +12,8 @@ declare
       [ 'allowInvoicing',            'Allowed to Invoice Time/Exp Sheets' ],
       [ 'allowVouchering',           'Allowed to Voucher Time/Exp Sheets' ],
       [ 'PostTimeSheets',            'Allowed to Post Time Sheets' ],
-      [ 'ViewTimeExpenseHistory',    'Allowed to view Time Expense Sheet history' ]
+      [ 'ViewTimeExpenseHistory',    'Allowed to view Time Expense Sheet history' ],
+      [ 'ReopenTimeExpense',         'Allowed to Reopen Time/Exp Sheets' ]
     ];
   _p TEXT[];
 begin
