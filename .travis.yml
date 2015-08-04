@@ -1,0 +1,28 @@
+language: node_js
+sudo:     required
+node_js:
+  - "0.10"
+
+install:
+  - cd ..
+  - git clone -b 4_10_x git://github.com/xtuple/xtuple.git --recursive
+  - cd xtuple
+  - bash scripts/install_xtuple.sh -ipn
+  - npm install
+  - cp test/lib/login_data.js ../xtte/test/lib/login_data.js
+  - cd ../xtte
+  - npm install
+  - npm run-script test-build
+
+before_script:
+  - cd ../xtuple/node-datasource
+  - node main.js &
+  - sleep 10
+  - cd ..
+
+script:
+  - npm test
+  - npm run-script test-datasource
+  - cd ../xtte
+  - npm test
+  - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database
