@@ -5,6 +5,23 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 INSERT INTO prjtask
+ ( prjtask_id,
+   prjtask_number,
+   prjtask_name,
+   prjtask_descrip,
+   prjtask_prj_id,
+   prjtask_anyuser,
+   prjtask_status,
+  prjtask_hours_budget,
+  prjtask_hours_actual,
+  prjtask_exp_budget,
+  prjtask_exp_actual,
+  prjtask_owner_username,
+  prjtask_start_date,
+  prjtask_due_date,
+  prjtask_assigned_date,
+  prjtask_completed_date,
+  prjtask_username )
 SELECT
   nextval('prjtask_prjtask_id_seq'),
   <? value("name") ?>,
