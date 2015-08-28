@@ -15,25 +15,27 @@ include("xtte");
 // Define Variables
 xtte.timeExpenseSheets = new Object;
 
-var _all              = mywindow.findChild("_all");
-var _close            = mywindow.findChild("_close");
-var _query            = mywindow.findChild("_query");
-var _new              = mywindow.findChild("_new");
-var _print            = mywindow.findChild("_print");
-var _sheets           = mywindow.findChild("_sheets");
-var _selected         = mywindow.findChild("_selected");
-var _approve          = mywindow.findChild("_approve");
-var _process          = mywindow.findChild("_process");
-var _weekending       = mywindow.findChild("_weekending");
-var _showAllEmployees = mywindow.findChild("_showAllEmployees");
-var _employee         = mywindow.findChild("_employee");
-var _selected         = mywindow.findChild("_selected");
-var _open             = mywindow.findChild("_open");
-var _approved         = mywindow.findChild("_approved");
-var _closed           = mywindow.findChild("_closed");
-var _invoice          = mywindow.findChild("_invoice");
-var _voucher          = mywindow.findChild("_voucher");
-var _post             = mywindow.findChild("_post");
+var _all               = mywindow.findChild("_all");
+var _close             = mywindow.findChild("_close");
+var _query             = mywindow.findChild("_query");
+var _new               = mywindow.findChild("_new");
+var _print             = mywindow.findChild("_print");
+var _sheets            = mywindow.findChild("_sheets");
+var _selected          = mywindow.findChild("_selected");
+var _approve           = mywindow.findChild("_approve");
+var _process           = mywindow.findChild("_process");
+var _weekending        = mywindow.findChild("_weekending");
+var _showAllEmployees  = mywindow.findChild("_showAllEmployees");
+var _showDirectReports = mywindow.findChild("_showDirectReports");
+var _employee          = mywindow.findChild("_employee");
+var _manager           = mywindow.findChild("_manager");
+var _selected          = mywindow.findChild("_selected");
+var _open              = mywindow.findChild("_open");
+var _approved          = mywindow.findChild("_approved");
+var _closed            = mywindow.findChild("_closed");
+var _invoice           = mywindow.findChild("_invoice");
+var _voucher           = mywindow.findChild("_voucher");
+var _post              = mywindow.findChild("_post");
 
 // Set up columns
 _sheets.addColumn(qsTr("Sheet#"), XTreeWidget.orderColumn, Qt.AlignLeft,    true, "tehead_number");
@@ -527,8 +529,10 @@ xtte.timeExpenseSheets.getParams = function()
 
   params.startDate = _weekending.startDate;
   params.endDate   = _weekending.endDate;
-  if (!_showAllEmployees.checked)
+  if (_selected.checked)
     params.emp_id  = _employee.id();
+  if (_showDirectReports.checked)
+    params.mgr_emp_id  = _manager.id();
 
   var statusList = [];
   var num = 0;
@@ -598,14 +602,23 @@ xtte.timeExpenseSheets.populateEmployees = function()
                              + "  FROM emp "
                              + " WHERE emp_username = CURRENT_USER;");
 
-  if (q.first()) 
+  if (q.first())
+  {
     _employee.setId(q.value("emp_id"));
+    _manager.setId(q.value("emp_id"));
+  }
 
   if (privileges.check("MaintainTimeExpenseOthers"))
+  {
     _showAllEmployees.visible = true;
+    _showDirectReports.visible = true;
+    _manager.visible = true;
+  }
   else
   {
     _showAllEmployees.visible = false;
+    _showDirectReports.visible = false;
+    _manager.visible = false;
     _employee.enabled = false;
     if (privileges.check("MaintainTimeExpenseSelf"))
     {
@@ -632,6 +645,9 @@ _weekending.setEndNull(qsTr("Latest"),     endOfTime,   true);
 _approve.enabled = privileges.check("CanApprove");
 _selected.checked = true;
 _showAllEmployees.visible = false;
+_showDirectReports.visible = false;
+_manager.visible = false;
+//_manager.enabled = false;
 
 if (!privileges.check("allowInvoicing"))
 {
@@ -662,8 +678,11 @@ _process.triggered.connect(xtte.timeExpenseSheets.process);
 _print.triggered.connect(xtte.timeExpenseSheets.printReport);
 _query.triggered.connect(xtte.timeExpenseSheets.fillList);
 
-_showAllEmployees["toggled(bool)"].connect(_employee["setDisabled(bool)"]);
+_selected["toggled(bool)"].connect(_employee["setEnabled(bool)"]);
 _employee["newId(int)"].connect(xtte.timeExpenseSheets.fillList);
+
+_showDirectReports["toggled(bool)"].connect(_manager["setEnabled(bool)"]);
+_manager["newId(int)"].connect(xtte.timeExpenseSheets.fillList);
 
 mainwindow.invoicesUpdated.connect(xtte.timeExpenseSheets.fillList);
 mainwindow.vouchersUpdated.connect(xtte.timeExpenseSheets.fillList);

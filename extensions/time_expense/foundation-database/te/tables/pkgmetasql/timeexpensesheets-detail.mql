@@ -88,6 +88,10 @@ FROM (
     AND 
         (tehead_emp_id=<? value("emp_id") ?>)
 <? endif ?>
+<? if exists("mgr_emp_id") ?>
+    AND 
+        (emp_mgr_emp_id=<? value("mgr_emp_id") ?>)
+<? endif ?>
 )) AS data
 GROUP BY
     tehead_id,
