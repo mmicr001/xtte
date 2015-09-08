@@ -36,7 +36,10 @@ trailing:true, white:true, strict: false*/
           method: "doPost", notify: false},
         {name: "close", privilege: "MaintainTimeExpense",
           prerequisite: "canClose", method: "doClose",
-          notifyMessage: "_closeWorksheet?".loc()}
+          notifyMessage: "_closeWorksheet?".loc()},
+        {name: "reopen", privilege: "ReopenTimeExpense",
+          prerequisite: "canReopen", method: "doReopen",
+          notifyMessage: "_reopenWorksheet?".loc()}
       ],
       parameterWidget: "XV.WorksheetListParameters",
       components: [
