@@ -4,25 +4,26 @@ node_js:
   - "0.10"
 
 install:
+  - cp test/lib/sample_login_data.js test/lib/login_data.js
   - cd ..
-  - git clone -b 4_10_x git://github.com/xtuple/xtuple.git --recursive
+  - git clone git://github.com/xtuple/xtuple.git --recursive
   - cd xtuple
+  - git checkout $TRAVIS_BRANCH
   - bash scripts/install_xtuple.sh -ipn
   - npm install
-  - cp test/lib/login_data.js ../xtte/test/lib/login_data.js
-  - cd ../xtte
-  - npm install
-  - npm run-script test-build
-
+  
 before_script:
-  - cd ../xtuple/node-datasource
-  - node main.js &
+  - cd node-datasource
+  - node main.js > nodelog.txt &
   - sleep 10
   - cd ..
 
 script:
-  - npm test
-  - npm run-script test-datasource
+  - npm run-script test
   - cd ../xtte
   - npm test
   - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database
+
+after_failure:
+  - tail -n 10000 ../xtuple/node-datasource/nodelog.txt
+  - for LOG in `sudo ls /var/log/postgresql` ; do echo $LOG ============ ; sudo tail -n 10000 /var/log/postgresql/$LOG ; done
