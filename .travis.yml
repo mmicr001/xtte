@@ -19,9 +19,11 @@ before_script:
   - cd ..
 
 script:
+  - echo $PWD
   - npm run-script test
   - cd ../xtte
-  - npm test
+  - echo $PWD
+  - npm run-script test
   - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database
 
 after_failure:
