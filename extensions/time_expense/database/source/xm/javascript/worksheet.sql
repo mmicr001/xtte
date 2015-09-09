@@ -215,27 +215,27 @@ select xt.install_js('XM','Worksheet','xtte', $$
     @param {String|Array} Id or Ids
     @returns Boolean
   */
-  XM.Worksheet.invoice = function(ids) {  
+  XM.Worksheet.invoice = function(ids, invoiceDate) {
     var data = Object.create(XT.Data),
-      sql = "select te.invoicesheets(array(select tehead_id from te.tehead where tehead_id in ({tokens})));",
+      sql = "select te.invoicesheets(array(select tehead_id from te.tehead where tehead_id in ({tokens})), $1);",
       hasAccess = data.checkPrivilege('allowInvoicing'),
       ids = XT.typeOf(ids) === "array" ? ids : [ids],
       orm = XT.Orm.fetch('XM', 'Worksheet'),
-      params = [],
+      params = [invoiceDate || new Date()],
       tokens = [],
       clause
       res,
       i;
 
     if (!hasAccess) { return false };
-
     /* get internal id for each natural key */
     for (i = 0; i < ids.length; i++) {
       params.push(data.getId(orm, ids[i]));
-      tokens.push("$" + (i + 1));
+      /* start this counter at 2 because we're using $1 for invoiceDate */
+      tokens.push("$" + (i + 2));
     }
     sql = sql.replace("{tokens}", tokens.join(","));
-    
+
     plv8.execute(sql, params);
     return true;
   };

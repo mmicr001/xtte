@@ -580,8 +580,8 @@ white:true*/
         return _doDispatch.call(this, "close", callback);
       },
 
-      doInvoice: function (callback) {
-        return _doDispatch.call(this, "invoice", callback);
+      doInvoice: function (callback, invoiceDate) {
+        return _doDispatch.call(this, "invoice", callback, [invoiceDate]);
       },
 
       doPost: function (callback) {

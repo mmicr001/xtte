@@ -39,6 +39,7 @@ strict:true, trailing:true, white:true */
     "_timeExpense": "Time Expense",
     "_unapprove": "Unapprove",
     "_unitCost": "Unit Cost",
+    "_selectInvoiceDate": "Select Invoice date",
     "_vouchered": "Vouchered",
     "_weekOf": "Week Of",
     "_workDate": "Work Date",
