@@ -10,6 +10,8 @@ install:
   - cd xtuple
   - git checkout $TRAVIS_BRANCH
   - bash scripts/install_xtuple.sh -ipn
+  - ./scripts/build_app.js -d dev -e ../xtte/extensions/time_expense/
+  - ./scripts/build_app.js -d dev -e ../xtte/
   - npm install
   
 before_script:
@@ -19,10 +21,9 @@ before_script:
   - cd ..
 
 script:
-  - echo $PWD
   - npm run-script test
   - cd ../xtte
-  - echo $PWD
+  - npm install
   - npm run-script test
   - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database
 
