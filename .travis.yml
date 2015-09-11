@@ -12,7 +12,7 @@ install:
   - bash scripts/install_xtuple.sh -ipn
   - ./scripts/build_app.js -d dev -e ../xtte/extensions/time_expense/
   - ./scripts/build_app.js -d dev -e ../xtte/
-  - npm install
+  - /usr/local/bin/npm install
   
 before_script:
   - cd node-datasource
@@ -21,10 +21,10 @@ before_script:
   - cd ..
 
 script:
-  - npm run-script test
+  - /usr/local/bin/npm run-script test
   - cd ../xtte
-  - npm install
-  - npm run-script test
+  - /usr/local/bin/npm install
+  - /usr/local/bin/npm run-script test
   - ../xtuple/node_modules/.bin/jshint extensions/time_expense/client extensions/time_expense/database
 
 after_failure:
