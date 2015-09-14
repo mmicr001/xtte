@@ -555,6 +555,10 @@ white:true*/
         return _canDo.call(this, qualifed, XM.Worksheet.APPROVED, callback);
       },
 
+      canReopen: function (callback) {
+        return _canDo.call(this, true, XM.Worksheet.CLOSED, callback);
+      },
+
       canUnapprove: function (callback) {
         var qualifed = this.get("postedValue") || this.get("posted") ||
                    this.get("invoicedValue") || this.get("invoiced") ||
@@ -587,6 +591,10 @@ white:true*/
       doPost: function (callback) {
         var params = ["_postWorksheetFor".loc(), "_toProject".loc()];
         return _doDispatch.call(this, "post", callback, params);
+      },
+
+      doReopen: function (callback) {
+        return _doDispatch.call(this, "reopen", callback);
       },
 
       doUnapprove: function (callback) {

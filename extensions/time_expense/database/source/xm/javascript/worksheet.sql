@@ -55,6 +55,16 @@ select xt.install_js('XM','Worksheet','xtte', $$
   };
 
   /**
+    Reopen a Worksheet
+
+    @param {String} Id
+    @returns Boolean
+  */
+  XM.Worksheet.reopen = function(id) {
+    return _changeStatus(id, 'ReopenTimeExpense', 'C', 'O');
+  };
+
+  /**
     Fetch the next number for a Worksheet 
 
     @param {String} record type
