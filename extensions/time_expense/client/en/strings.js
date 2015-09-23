@@ -33,6 +33,7 @@ strict:true, trailing:true, white:true */
     "_prepaid": "Prepaid",
     "_projectBilling": "Project Billing",
     "_rate": "Rate",
+    "_reopen": "Reopen",
     "_site": "Site",
     "_task": "Task",
     "_time": "Time",
@@ -52,6 +53,7 @@ strict:true, trailing:true, white:true */
     "_postWorksheetFor": "Post Time Sheet for ",
     "_toProject": " to Project",
     "_closeWorksheet?": "Are you sure you want to close the worksheet? This action can not be undone.",
+    "_reopenWorksheet?": "Are you sure you want to reopen this worksheet?",
 
     // ********
     // Privileges
