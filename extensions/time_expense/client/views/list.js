@@ -1,7 +1,7 @@
 /*jshint bitwise:true, indent:2, curly:true, eqeqeq:true, immed:true,
 latedef:true, newcap:true, noarg:true, regexp:true, undef:true,
 trailing:true, white:true, strict: false*/
-/*global XT:true, XM:true, XV:true, enyo:true, Globalize:true*/
+/*global XT:true, XM:true, XV:true, enyo:true, Globalize:true, _:true*/
 
 (function () {
 
@@ -28,8 +28,8 @@ trailing:true, white:true, strict: false*/
           method: "doApprove", notify: false},
         {name: "unapprove", privilege: "CanApprove",
           prerequisite: "canUnapprove", method: "doUnapprove", notify: false},
-        {name: "invoice", privilege: "allowInvoicing",
-          prerequisite: "canInvoice", method: "doInvoice", notify: false},
+        {name: "invoice", privilege: "allowInvoicing", notify: false, isViewMethod: true,
+          prerequisite: "canInvoice", method: "doInvoice"},
         {name: "voucher", privilege: "allowVouchering",
           prerequisite: "canVoucher", method: "doVoucher", notify: false},
         {name: "post", privilege: "PostTimeSheets", prerequisite: "canPost",
@@ -69,6 +69,28 @@ trailing:true, white:true, strict: false*/
           ]}
         ]}
       ],
+      doInvoice: function (inEvent) {
+        var that = this,
+          keys = _.keys(this.getSelection().selected),
+          callback = function (resp) {
+            var invoiceDate = resp.componentValue;
+            if (resp && invoiceDate) {
+              _.each(keys, function (key) {
+                var model = that.getModel(key);
+                model[inEvent.action.method](inEvent.callback, invoiceDate);
+              });
+            } else if (resp && !invoiceDate) {
+              that.doNotify({message: "_noDateSelected".loc()});
+            }
+          };
+
+        this.doNotify({
+          type: XM.Model.OK_CANCEL,
+          message: "_selectInvoiceDate".loc(),
+          component: {kind: "XV.DateWidget", name: "date", showLabel: false},
+          callback: callback
+        });
+      },
       formatHours: XV.ProjectList.prototype.formatHours,
       formatInvoice: function (value, view, model) {
         var invoiced = model.get("invoiced");
