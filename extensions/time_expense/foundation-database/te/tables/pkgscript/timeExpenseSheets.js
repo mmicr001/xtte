@@ -608,6 +608,20 @@ xtte.timeExpenseSheets.populateEmployees = function()
     _manager.setId(q.value("emp_id"));
   }
 
+  // determine if the current user is active
+  currSql = "SELECT emp_active "
+          + "FROM  emp "
+          + "WHERE emp_id = <? value('emp_id') ?>";
+
+  var params   = new Object();
+  params.emp_id = _employee.id(); 
+
+  var empActive;
+ 
+  q = toolbox.executeQuery(currSql,params);
+  if (q.first()) 
+    empActive = q.value("emp_active");
+
   if (privileges.check("MaintainTimeExpenseOthers"))
   {
     _showAllEmployees.visible = true;
@@ -622,9 +636,13 @@ xtte.timeExpenseSheets.populateEmployees = function()
     _employee.enabled = false;
     if (privileges.check("MaintainTimeExpenseSelf"))
     {
-      if (_employee.id() == -1)
+      if (!empActive)
         QMessageBox.critical(mywindow, mywindow.windowTitle, 
-                    qsTr("It appears that your current user isn't an active employee.") );                                            
+                    qsTr("It appears that your current user isn't an active employee.") );     
+      if (mywindow.windowModality)
+        mydialog.reject();
+      else
+        mywindow.close();                                       
     }
     else
     {
