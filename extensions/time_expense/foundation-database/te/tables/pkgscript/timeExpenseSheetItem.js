@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
  * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
@@ -501,7 +501,6 @@ xtte.timeExpenseSheetItem.taskChanged = function()
       _items.enabled = false;
     }
     else
-      _items.setId(-1);
       _items.enabled = true;
   }
 
