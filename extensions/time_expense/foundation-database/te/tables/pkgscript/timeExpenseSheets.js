@@ -49,6 +49,7 @@ if (privileges.check("CanViewRates")) {
 _sheets.addColumn(qsTr("Invoiced"), XTreeWidget.dateColumn, Qt.AlignLeft, true, "invoiced");
 _sheets.addColumn(qsTr("Vouchered"),XTreeWidget.dateColumn, Qt.AlignLeft, true, "vouchered");
 _sheets.addColumn(qsTr("Posted"),   XTreeWidget.dateColumn, Qt.AlignLeft, true, "posted");
+_sheets.addColumn(qsTr("Notes"),    -1, Qt.AlignLeft, true, "tehead_notes");
 
 xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
 {

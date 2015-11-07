@@ -54,6 +54,8 @@ SELECT
   formatDate(tehead_weekending) AS f_weekending
 <? endif ?>
 
+  , tehead_notes
+  
 FROM (
   SELECT
     tehead_id,
@@ -75,7 +77,8 @@ FROM (
 
     te.sheetstate(tehead_id, 'I') AS invoiced,
     te.sheetstate(tehead_id, 'V') AS vouchered,
-    te.sheetstate(tehead_id, 'P') AS posted
+    te.sheetstate(tehead_id, 'P') AS posted,
+	tehead_notes
   FROM te.tehead
     LEFT OUTER JOIN te.teitem ON (tehead_id=teitem_tehead_id)
     JOIN emp ON (tehead_emp_id=emp_id)
@@ -101,5 +104,6 @@ GROUP BY
     emp_code,
     invoiced,
     vouchered,
-    posted
+    posted,
+	tehead_notes
 ORDER BY tehead_number;
