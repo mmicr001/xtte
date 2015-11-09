@@ -55,6 +55,7 @@ SELECT
 <? endif ?>
 
   , tehead_notes
+  , SUM(total_hours) as total_hours
   
 FROM (
   SELECT
@@ -78,7 +79,11 @@ FROM (
     te.sheetstate(tehead_id, 'I') AS invoiced,
     te.sheetstate(tehead_id, 'V') AS vouchered,
     te.sheetstate(tehead_id, 'P') AS posted,
-	tehead_notes
+	tehead_notes,
+	CASE WHEN (teitem_type='T')
+            THEN COALESCE(teitem_qty, 0)
+         ELSE 0
+    END AS total_hours	
   FROM te.tehead
     LEFT OUTER JOIN te.teitem ON (tehead_id=teitem_tehead_id)
     JOIN emp ON (tehead_emp_id=emp_id)
