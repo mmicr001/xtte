@@ -50,6 +50,7 @@ _sheets.addColumn(qsTr("Invoiced"), XTreeWidget.dateColumn, Qt.AlignLeft, true, 
 _sheets.addColumn(qsTr("Vouchered"),XTreeWidget.dateColumn, Qt.AlignLeft, true, "vouchered");
 _sheets.addColumn(qsTr("Posted"),   XTreeWidget.dateColumn, Qt.AlignLeft, true, "posted");
 _sheets.addColumn(qsTr("Notes"),    -1, Qt.AlignLeft, true, "tehead_notes");
+_sheets.addColumn(qsTr("Hours"),    -1, Qt.AlignLeft, true, "total_hours");
 
 xtte.timeExpenseSheets.populateMenu = function(pMenu, pItem, pCol)
 {
