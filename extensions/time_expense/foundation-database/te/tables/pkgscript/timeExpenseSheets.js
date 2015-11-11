@@ -638,14 +638,15 @@ xtte.timeExpenseSheets.populateEmployees = function()
     _employee.enabled = false;
     if (privileges.check("MaintainTimeExpenseSelf"))
     {
-      if (!empActive)
+      if (!empActive){
         QMessageBox.critical(mywindow, mywindow.windowTitle, 
-                    qsTr("It appears that your current user isn't an active employee.") );     
-      if (mywindow.windowModality)
-        mydialog.reject();
-      else
-        mywindow.close();                                       
-    }
+                    qsTr("It appears that your current user isn't an active employee.") );                                            
+        if (mywindow.windowModality)
+          mydialog.reject();
+        else
+          mywindow.close();
+      }
+    }      
     else
     {
       QMessageBox.critical(mywindow, qsTr("Permissions Error"),
