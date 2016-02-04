@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>configureCRM</name>
     <message>
@@ -860,10 +860,6 @@ Would you like to save them now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This action can not be undone. Are you sure you want to close this Worksheet?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Approved</source>
         <translation type="unfinished"></translation>
     </message>
@@ -965,6 +961,30 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>Ctrl+P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reopen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to close this Worksheet?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to reopen this Worksheet?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Direct Reports</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
