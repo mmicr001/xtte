@@ -49,13 +49,13 @@
   <createfunction file="foundation-database/te/functions/unnest.sql"        name="unnest" />
   <createfunction file="foundation-database/te/functions/vouchersheet.sql"  name="vouchersheet" />
 
-  <createtable file="foundation-database/te/tables/createtecustrate.sql"    name="tecustrate"/>
-  <createtable file="foundation-database/te/tables/createteemp.sql"         name="teemp"/>
-  <createtable file="foundation-database/te/tables/createteexp.sql"         name="teexp"/>
-  <createtable file="foundation-database/te/tables/createtehead.sql"        name="tehead"/>
-  <createtable file="foundation-database/te/tables/createteitem.sql"        name="teitem"/>
-  <createtable file="foundation-database/te/tables/createteprj.sql"         name="teprj"/>
-  <createtable file="foundation-database/te/tables/createteprjtask.sql"     name="teprjtask"/>
+  <createtable file="foundation-database/te/tables/tecustrate.sql"    name="tecustrate"/>
+  <createtable file="foundation-database/te/tables/teemp.sql"         name="teemp"/>
+  <createtable file="foundation-database/te/tables/teexp.sql"         name="teexp"/>
+  <createtable file="foundation-database/te/tables/tehead.sql"        name="tehead"/>
+  <createtable file="foundation-database/te/tables/teitem.sql"        name="teitem"/>
+  <createtable file="foundation-database/te/tables/teprj.sql"         name="teprj"/>
+  <createtable file="foundation-database/te/tables/teprjtask.sql"     name="teprjtask"/>
 
   <createtrigger name="teheadtrigger" file="foundation-database/te/trigger_functions/tehead.sql" />
   <createtrigger name="teitemtrigger" file="foundation-database/te/trigger_functions/teitem.sql" />
