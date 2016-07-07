@@ -14,7 +14,7 @@ xtte.task = new Object;
 var _tab = mywindow.findChild("_tab"); 
 var _tebilling = toolbox.loadUi("tebilling", mywindow);
 _tab.insertTab(2, _tebilling, qsTr("Billing"));
-_tab.setEnabled(2, privileges.check("CanViewRates"));
+_tab.setTabEnabled(_tab.indexOf(_tebilling), privileges.check("CanViewRates"));
 
 var _number = mywindow.findChild("_number");
 var _actualHours = mywindow.findChild("_actualHours");
