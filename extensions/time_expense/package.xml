@@ -2,7 +2,7 @@
          name="te"
          developer="xTuple"
          descrip="Time and Expense System"
-         version="2.4.1"
+         version="2.4.2"
          updater="2.4.0Beta">
   <pkgnotes>Time and Expense System add-on package for xTuple ERP.
 
