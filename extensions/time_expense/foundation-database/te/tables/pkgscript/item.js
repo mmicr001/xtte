@@ -63,10 +63,10 @@ xtte.item.save = function(id)
   xtte.errorCheck(q);
 }
 
-xtte.item.populate = function(itemId)
+xtte.item.populate = function()
 {
   var params = new Object;
-  params.item_id = itemId;
+  params.item_id = mywindow.id();
 
   var q = toolbox.executeDbQuery("item", "selteexp", params);
 
@@ -116,6 +116,7 @@ xtte.item.checkSave = function()
 // Initialize
 _expcat.enabled = false;
 _account.setType(0x01 | 0x02 | 0x04); // Asset, Liability, Expense
+xtte.item.populate();
 
 // Connections
 toolbox.coreDisconnect(_save, "clicked()", mywindow, "sSave()"); 
