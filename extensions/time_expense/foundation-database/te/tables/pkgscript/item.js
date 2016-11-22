@@ -54,7 +54,7 @@ xtte.item.save = function(id)
   params.accnt_id = _account.id();
 
   var query = "updteexp";
-  if (!_projectExpense.checked)
+  if (!_projectExpense.checked || _itemtype.currentIndex != 3)
     query = "delteexp";
   else if (_isnew)
     query = "insteexp";
@@ -102,6 +102,7 @@ xtte.item.handleExpense = function()
 xtte.item.checkSave = function()
 {
   if (_projectExpense.checked == true &&
+      _itemtype.currentIndex == 3 &&
       !_expcat.isValid() && 
       !_account.isValid())
   {
