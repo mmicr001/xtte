@@ -14,9 +14,6 @@ $$ language plpgsql;
 
 select xt.create_table('tehead', 'te');
 
--- remove old trigger if any
-drop trigger if exists teheadtrigger on te.tehead;
-
 select xt.add_column('tehead','tehead_id', 'serial', 'not null', 'te');
 select xt.add_column('tehead','tehead_number', 'text', $$default nextval('te.timesheet_seq'::regclass)$$, 'te');
 select xt.add_column('tehead','tehead_weekending', 'date', '', 'te');
@@ -33,7 +30,3 @@ select xt.add_constraint('tehead', 'tehead_tehead_status_check', $$check (tehead
 
 comment on table te.tehead is 'Time/Expense Worksheet Header';
 grant all on sequence te.tehead_tehead_id_seq to xtrole;
-
--- create trigger
-
-create trigger teheadtrigger after insert or update on te.tehead for each row execute procedure te.triggertehead();

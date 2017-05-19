@@ -1,8 +1,5 @@
 select xt.create_table('teprj', 'te');
 
--- remove old trigger if any
-drop trigger if exists teprjtrigger on te.teprj;
-
 select xt.add_column('teprj','teprj_id', 'serial', 'not null', 'te');
 select xt.add_column('teprj','teprj_prj_id', 'integer', '', 'te');
 select xt.add_column('teprj','teprj_cust_id', 'integer', '', 'te');
@@ -15,7 +12,3 @@ select xt.add_constraint('teprj', 'teprj_teprj_prj_id','unique(teprj_prj_id)', '
 comment on table te.teprj is 'Time/Expense Information for Projects';
 
 grant all on te.teprj_teprj_id_seq to xtrole;
-
--- create trigger
-
-create trigger teprjtrigger after insert or update on te.teprj for each row execute procedure te.triggerteprj();

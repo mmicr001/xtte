@@ -1,5 +1,7 @@
+DROP TRIGGER IF EXISTS teprjtrigger ON te.teprj;
+
 CREATE OR REPLACE FUNCTION te.triggerteprj() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2014 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _update BOOLEAN := false;
@@ -22,4 +24,7 @@ BEGIN
   
   RETURN NEW;
 END;
-$$ LANGUAGE 'plpgsql';
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER teprjtrigger AFTER INSERT OR UPDATE ON te.teprj
+   FOR EACH ROW EXECUTE PROCEDURE te.triggerteprj();
