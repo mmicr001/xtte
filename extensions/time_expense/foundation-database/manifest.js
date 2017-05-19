@@ -1,6 +1,6 @@
 {
   "name": "time_expense",
-  "version": "2.3.1",
+  "version": "2.4.3",
   "comment": "Time Expense Management extension",
   "loadOrder": 100,
   "defaultSchema": "te",
@@ -10,6 +10,7 @@
     "version.sql",
 
     "priv.sql",
+    "initscript.sql",
 
     "te/functions/calcrate.sql",
     "te/functions/copyitem.sql",
@@ -19,10 +20,6 @@
     "te/functions/unnest.sql",
     "te/functions/vouchersheet.sql",
 
-    "te/trigger_functions/tehead.sql",
-    "te/trigger_functions/teitem.sql",
-    "te/trigger_functions/teprj.sql",
-
     "te/tables/tecustrate.sql",
     "te/tables/teemp.sql",
     "te/tables/teexp.sql",
@@ -30,6 +27,10 @@
     "te/tables/teitem.sql",
     "te/tables/teprj.sql",
     "te/tables/teprjtask.sql",
+
+    "te/trigger_functions/tehead.sql",
+    "te/trigger_functions/teitem.sql",
+    "te/trigger_functions/teprj.sql",
 
     "te/tables/pkgmetasql/customer-deltecustrate.mql",
     "te/tables/pkgmetasql/customer-instecustrate.mql",
@@ -111,7 +112,9 @@
     "te/tables/pkguiform/teexpense.ui",
     "te/tables/pkguiform/timeExpenseSheet.ui",
     "te/tables/pkguiform/timeExpenseSheetItem.ui",
-    "te/tables/pkguiform/timeExpenseSheets.ui"
+    "te/tables/pkguiform/timeExpenseSheets.ui",
+
+    "finalscript.sql"
 
   ]
 }
