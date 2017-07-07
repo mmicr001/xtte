@@ -17,10 +17,10 @@ FORMS += $$FORMDIR/dspTimeExpenseHistory.ui \
          $$FORMDIR/tecustomer.ui \
          $$FORMDIR/teexpense.ui \
          $$FORMDIR/timeExpenseSheet.ui \
-         $$FORMDIR/timeExpenseSheetByProject.ui \
          $$FORMDIR/timeExpenseSheetItem.ui \
          $$FORMDIR/timeExpenseSheets.ui
 
+# exclude $$SCRIPTDIR/jsGanttCSS.js because it is really a .css file
 SOURCES += \
          $$SCRIPTDIR/configureCRM.js \
          $$SCRIPTDIR/customer.js \
@@ -29,10 +29,8 @@ SOURCES += \
          $$SCRIPTDIR/initMenu.js \
          $$SCRIPTDIR/item.js \
          $$SCRIPTDIR/jsGantt.js \
-         $$SCRIPTDIR/jsGanttCSS.js \
          $$SCRIPTDIR/project.js \
          $$SCRIPTDIR/projectGantt.js \
-         $$SCRIPTDIR/projects.js \
          $$SCRIPTDIR/task.js \
          $$SCRIPTDIR/tebilling.js \
          $$SCRIPTDIR/timeExpenseSheet.js \
