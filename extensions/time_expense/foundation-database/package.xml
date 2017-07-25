@@ -147,7 +147,6 @@
   <finalscript name = "foundation-database/finalscript.sql" />
   <loadqm file="te/tables/pkgdict/xtte.ar_eg.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.bg.qm"/>
-  <loadqm file="te/tables/pkgdict/xtte.cn.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.cs.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.de_at.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.de_ch.qm"/>
@@ -161,7 +160,7 @@
   <loadqm file="te/tables/pkgdict/xtte.fr.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.hr.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.it.qm"/>
-  <loadqm file="te/tables/pkgdict/xtte.jp.qm"/>
+  <loadqm file="te/tables/pkgdict/xtte.ja.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.nl.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.no.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.pl.qm"/>
@@ -170,7 +169,8 @@
   <loadqm file="te/tables/pkgdict/xtte.ru.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.sk.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.tr.qm"/>
-  <loadqm file="te/tables/pkgdict/xtte.ua.qm"/>
+  <loadqm file="te/tables/pkgdict/xtte.uk.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.zh_hk.qm"/>
+  <loadqm file="te/tables/pkgdict/xtte.zh.qm"/>
   <loadqm file="te/tables/pkgdict/xtte.zh_tw.qm"/>
 </package>

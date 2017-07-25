@@ -26,7 +26,6 @@ SOURCES = ../pkgscript/configureCRM.js \
 TRANSLATIONS = xtte.ar_eg.ts \
                xtte.base.ts \
                xtte.bg.ts \
-               xtte.cn.ts \
                xtte.cs.ts \
                xtte.de_at.ts \
                xtte.de_ch.ts \
@@ -40,7 +39,7 @@ TRANSLATIONS = xtte.ar_eg.ts \
                xtte.fr.ts \
                xtte.hr.ts \
                xtte.it.ts \
-               xtte.jp.ts \
+               xtte.ja.ts \
                xtte.nl.ts \
                xtte.no.ts \
                xtte.pl.ts \
@@ -49,6 +48,7 @@ TRANSLATIONS = xtte.ar_eg.ts \
                xtte.ru.ts \
                xtte.sk.ts \
                xtte.tr.ts \
-               xtte.ua.ts \
+               xtte.uk.ts \
                xtte.zh_hk.ts \
+               xtte.zh.ts \
                xtte.zh_tw.ts
