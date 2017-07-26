@@ -23,32 +23,32 @@ SOURCES = ../pkgscript/configureCRM.js \
           ../pkgscript/timeExpenseSheets.js \
           ../pkgscript/xtte.js
 
-TRANSLATIONS = xtte.ar_eg.ts \
-               xtte.base.ts \
-               xtte.bg.ts \
-               xtte.cs.ts \
-               xtte.de_at.ts \
-               xtte.de_ch.ts \
-               xtte.de.ts \
-               xtte.en_ca.ts \
-               xtte.es_ar.ts \
-               xtte.es_mx.ts \
-               xtte.es.ts \
-               xtte.et_ee.ts \
-               xtte.fr_ca.ts \
-               xtte.fr.ts \
-               xtte.hr.ts \
-               xtte.it.ts \
-               xtte.ja.ts \
-               xtte.nl.ts \
-               xtte.no.ts \
-               xtte.pl.ts \
-               xtte.pt_br.ts \
-               xtte.pt.ts \
-               xtte.ru.ts \
-               xtte.sk.ts \
-               xtte.tr.ts \
-               xtte.uk.ts \
-               xtte.zh_hk.ts \
-               xtte.zh.ts \
-               xtte.zh_tw.ts
+TRANSLATIONS = te.ar_eg.ts \
+               te.base.ts \
+               te.bg.ts \
+               te.cs.ts \
+               te.de_at.ts \
+               te.de_ch.ts \
+               te.de.ts \
+               te.en_ca.ts \
+               te.es_ar.ts \
+               te.es_mx.ts \
+               te.es.ts \
+               te.et_ee.ts \
+               te.fr_ca.ts \
+               te.fr.ts \
+               te.hr.ts \
+               te.it.ts \
+               te.ja.ts \
+               te.nl.ts \
+               te.no.ts \
+               te.pl.ts \
+               te.pt_br.ts \
+               te.pt.ts \
+               te.ru.ts \
+               te.sk.ts \
+               te.tr.ts \
+               te.uk.ts \
+               te.zh_hk.ts \
+               te.zh.ts \
+               te.zh_tw.ts
