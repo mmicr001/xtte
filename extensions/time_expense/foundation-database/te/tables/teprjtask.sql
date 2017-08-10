@@ -5,7 +5,7 @@ ALTER TABLE te.teprjtask DISABLE TRIGGER ALL;
 SELECT xt.add_column('teprjtask', 'teprjtask_id',          'SERIAL', 'NOT NULL',             'te'),
        xt.add_column('teprjtask', 'teprjtask_cust_id',    'INTEGER', '',                     'te'),
        xt.add_column('teprjtask', 'teprjtask_rate',       'NUMERIC', '',                     'te'),
-       xt.add_column('teprjtask', 'teprjtask_item_id',    'INTEGER', 'REFERENCES item(item_id) ON DELETE SET NULL', 'te'),
+       xt.add_column('teprjtask', 'teprjtask_item_id',    'INTEGER', '', 'te'),
        xt.add_column('teprjtask', 'teprjtask_prjtask_id', 'INTEGER', '',                     'te'),
        xt.add_column('teprjtask', 'teprjtask_curr_id',    'INTEGER', 'DEFAULT basecurrid()', 'te');
 
