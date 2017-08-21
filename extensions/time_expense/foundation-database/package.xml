@@ -3,7 +3,7 @@
          developer="xTuple"
          descrip="Time and Expense System"
          version="2.4.4"
-         updater="2.4.0Beta">
+         updater="2.5.0Beta">
   <pkgnotes>Time and Expense System add-on package for xTuple ERP.
 
         This file is part of the xtte package for xTuple ERP: PostBooks Edition,
@@ -145,32 +145,5 @@
   <loadreport file="te/tables/pkgreport/TimeExpenseSheets.xml" />
 
   <finalscript name = "finalscript.sql" />
-  <loadqm file="te/tables/pkgdict/te.ar_eg.qm"/>
-  <loadqm file="te/tables/pkgdict/te.bg.qm"/>
-  <loadqm file="te/tables/pkgdict/te.cs.qm"/>
-  <loadqm file="te/tables/pkgdict/te.de_at.qm"/>
-  <loadqm file="te/tables/pkgdict/te.de_ch.qm"/>
-  <loadqm file="te/tables/pkgdict/te.de.qm"/>
-  <loadqm file="te/tables/pkgdict/te.en_ca.qm"/>
-  <loadqm file="te/tables/pkgdict/te.es_ar.qm"/>
-  <loadqm file="te/tables/pkgdict/te.es_mx.qm"/>
-  <loadqm file="te/tables/pkgdict/te.es.qm"/>
-  <loadqm file="te/tables/pkgdict/te.et_ee.qm"/>
-  <loadqm file="te/tables/pkgdict/te.fr_ca.qm"/>
-  <loadqm file="te/tables/pkgdict/te.fr.qm"/>
-  <loadqm file="te/tables/pkgdict/te.hr.qm"/>
-  <loadqm file="te/tables/pkgdict/te.it.qm"/>
-  <loadqm file="te/tables/pkgdict/te.ja.qm"/>
-  <loadqm file="te/tables/pkgdict/te.nl.qm"/>
-  <loadqm file="te/tables/pkgdict/te.no.qm"/>
-  <loadqm file="te/tables/pkgdict/te.pl.qm"/>
-  <loadqm file="te/tables/pkgdict/te.pt_br.qm"/>
-  <loadqm file="te/tables/pkgdict/te.pt.qm"/>
-  <loadqm file="te/tables/pkgdict/te.ru.qm"/>
-  <loadqm file="te/tables/pkgdict/te.sk.qm"/>
-  <loadqm file="te/tables/pkgdict/te.tr.qm"/>
-  <loadqm file="te/tables/pkgdict/te.uk.qm"/>
-  <loadqm file="te/tables/pkgdict/te.zh_hk.qm"/>
-  <loadqm file="te/tables/pkgdict/te.zh.qm"/>
-  <loadqm file="te/tables/pkgdict/te.zh_tw.qm"/>
+  <translations/>
 </package>

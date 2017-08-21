@@ -38,19 +38,23 @@ all: FORCE
 	lupdate -no-obsolete $(PKG)/tables/pkgdict/$(PKG)_ts.pro
 	lrelease $(PKG)/tables/pkgdict/$(PKG)_ts.pro
 
-	sed -i '/loadqm/d' package.xml
-	sed -i '/<\/package>/d' package.xml
+	rm $(PKG)/tables/pkgdict/translations.xml
+	echo '<qm>' >> $(PKG)/tables/pkgdict/translations.xml
 
 	for TRANSLATION in $$(find $(PKG)/tables/pkgdict -name *.qm | sort) ; do \
-	 if ! echo $$TRANSLATION | grep -q 'base' ; then \
-	   echo '  <loadqm file="'$$TRANSLATION'"/>' >> package.xml ; \
+	 if ! expr $$TRANSLATION : '.*base.*' ; then \
+	   echo '  <loadqm file="'$$TRANSLATION'"/>' >> $(PKG)/tables/pkgdict/translations.xml ; \
 	  fi \
 	done
 
-	echo '</package>' >> package.xml
+	echo '</qm>' >> $(PKG)/tables/pkgdict/translations.xml
+
+	cp package.xml ../package.xml
+	xsltproc -o package.xml $(PKG)/tables/pkgdict/build.xsl package.xml
 
 	cd .. && tar czf ../../packages/$(PKG)-$(VER).gz $(TAROPTS) $(EXCLUDE) $(DIR)
 
 	rm $(PKG)/tables/pkgdict/*.qm
+	mv ../package.xml .
 
 FORCE:
