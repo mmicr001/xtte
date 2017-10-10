@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2016 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -456,7 +456,10 @@ xtte.timeExpenseSheetItem.projectChanged = function()
   //enable and reset the task fields
   _task.enabled = (_project.isValid() && _mode == xtte.newMode);
 
+  _clients.setId(-1);
+  _items.setId(-1);
   xtte.timeExpenseSheetItem.gettask();
+  xtte.timeExpenseSheetItem.taskChanged();
   xtte.timeExpenseSheetItem.modified();
   xtte.timeExpenseSheetItem.getPrice();
 }
