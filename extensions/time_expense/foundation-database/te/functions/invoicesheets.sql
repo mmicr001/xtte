@@ -56,7 +56,7 @@ BEGIN
                 invchead_misc_amount, invchead_misc_descrip, invchead_misc_accnt_id,
                 invchead_payment, invchead_paymentref, invchead_notes,
                 invchead_billto_country, invchead_shipto_country, invchead_prj_id,
-                invchead_curr_id, invchead_gldistdate, invchead_recurring,
+                invchead_curr_id, invchead_recurring,
                 invchead_recurring_interval, invchead_recurring_type, invchead_recurring_until,
                 invchead_recurring_invchead_id, invchead_shipchrg_id, invchead_taxzone_id,
                 invchead_void, invchead_saletype_id, invchead_shipzone_id)
@@ -74,7 +74,7 @@ BEGIN
                 0, '', -1,
                 0, '', '',
                 COALESCE(addr_country,''), '', _s.prj_id, 
-                _s.teitem_curr_id, current_date, false,
+                _s.teitem_curr_id, false,
                 null, null, null,
                 null, null, cust_taxzone_id,
                 false, null, null
