@@ -144,6 +144,8 @@
   <loadreport file="te/tables/pkgreport/TimeExpenseSheet.xml" />
   <loadreport file="te/tables/pkgreport/TimeExpenseSheets.xml" />
 
+  <script file="te/patches/fixdate.sql" />
+
   <finalscript name = "finalscript.sql" />
   <translations/>
 </package>
