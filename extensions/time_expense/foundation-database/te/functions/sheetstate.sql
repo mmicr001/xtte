@@ -13,8 +13,10 @@ BEGIN
   --   -1 = Not Applicable
 
   IF (pType = 'I') THEN
-    SELECT MIN(CASE teitem_invcitem_id IS NULL WHEN TRUE THEN 0 ELSE 1 END) INTO _state
+    SELECT MIN(CASE COALESCE(invchead_void, TRUE) WHEN TRUE THEN 0 ELSE 1 END) INTO _state
       FROM te.teitem
+      LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
+      LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
      WHERE ((teitem_tehead_id=pTeheadId)
         AND (teitem_billable)
         AND (teitem_qty >= 0));
