@@ -30,9 +30,11 @@ BEGIN
          JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
          JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
          JOIN prj ON (prjtask_prj_id=prj_id)
+         LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
+         LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
        WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
         AND (teitem_billable)
-        AND (teitem_invcitem_id IS NULL))
+        AND (COALESCE(invchead_void, TRUE)))
 
        -- loop thru records and create invoices by customer, by PO for the provided headid
        LOOP
@@ -106,9 +108,11 @@ BEGIN
                JOIN item ON (item_id = teitem_item_id)
                JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
                JOIN prj ON (prjtask_prj_id=prj_id)
+               LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
+               LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
              WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
               AND (teitem_billable)
-              AND (teitem_invcitem_id IS NULL)
+              AND (COALESCE(invchead_void, TRUE))
               AND (item_id = teitem_item_id)
               AND (teitem_cust_id = _s.teitem_cust_id)
               AND (teitem_po = _s.teitem_po)
