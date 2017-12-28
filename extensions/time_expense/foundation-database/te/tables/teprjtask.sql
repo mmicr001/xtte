@@ -13,7 +13,9 @@ SELECT xt.add_primary_key('teprjtask', 'teprjtask_id', 'te');
 
 SELECT xt.add_constraint('teprjtask', 'teprjtask_teprjtask_prjtask_id_key', 'UNIQUE (teprjtask_prjtask_id )', 'te'),
        xt.add_constraint('teprjtask', 'teprjtask_teprjtask_curr_id_fkey',
-                         'FOREIGN KEY (teprjtask_curr_id) REFERENCES curr_symbol(curr_id) ON DELETE SET DEFAULT', 'te');
+                         'FOREIGN KEY (teprjtask_curr_id) REFERENCES curr_symbol(curr_id) ON DELETE SET DEFAULT', 'te'),
+       xt.add_constraint('teprjtask', 'teprjtask_cust_id_fk', 
+                         'FOREIGN KEY (teprjtask_cust_id) REFERENCES custinfo(cust_id)', 'te');
 
 -- this is a conscious choice - see 6e877eda and ace0ff12 - but why?
 alter table te.teprjtask drop constraint if exists teprjtask_teprjtask_prjtask_id_fkey;
