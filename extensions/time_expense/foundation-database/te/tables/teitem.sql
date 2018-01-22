@@ -25,11 +25,15 @@ select xt.add_column('teitem','teitem_vodist_id', 'integer', '', 'te');
 select xt.add_column('teitem','teitem_postedvalue', 'numeric', 'not null default 0', 'te');
 select xt.add_column('teitem','teitem_empcost', 'numeric', '', 'te');
 
-select xt.add_primary_key('teitem', 'teitem_id', 'te');
-select xt.add_constraint('teitem', 'teitem_teitem_curr_id_fkey','foreign key (teitem_curr_id) references curr_symbol (curr_id) on delete set default', 'te');
-select xt.add_constraint('teitem', 'teitem_teitem_invcitem_id_fkey','foreign key (teitem_invcitem_id) references invcitem (invcitem_id) on delete set null', 'te');
-select xt.add_constraint('teitem', 'teitem_teitem_tehead_id_fkey','foreign key (teitem_tehead_id) references te.tehead (tehead_id)', 'te');
-select xt.add_constraint('teitem', 'teitem_teitem_vodist_id_fkey','foreign key (teitem_vodist_id) references vodist (vodist_id) on delete set null', 'te');
+UPDATE te.teitem SET teitem_cust_id = NULL WHERE teitem_cust_id = -1;
+
+SELECT xt.add_primary_key('teitem', 'teitem_id', 'te'),
+       xt.add_constraint('teitem', 'teitem_teitem_curr_id_fkey','foreign key (teitem_curr_id) references curr_symbol (curr_id) on delete set default', 'te'),
+       xt.add_constraint('teitem', 'teitem_teitem_invcitem_id_fkey','foreign key (teitem_invcitem_id) references invcitem (invcitem_id) on delete set null', 'te'),
+       xt.add_constraint('teitem', 'teitem_teitem_tehead_id_fkey','foreign key (teitem_tehead_id) references te.tehead (tehead_id)', 'te'),
+       xt.add_constraint('teitem', 'teitem_teitem_vodist_id_fkey','foreign key (teitem_vodist_id) references vodist (vodist_id) on delete set null', 'te'),
+       xt.add_constraint('teitem', 'teitem_cust_id_fk', 'FOREIGN KEY (teitem_cust_id) REFERENCES custinfo(cust_id)', 'te'),
+       xt.add_constraint('teitem', 'teitem_vend_id_fk', 'FOREIGN KEY (teitem_vend_id) REFERENCES vendinfo(vend_id)', 'te');
 
 -- fix bad datatype problem with teitem_prjtask_id - allow it to be an fkey
 -- first drop any views that depend on it
