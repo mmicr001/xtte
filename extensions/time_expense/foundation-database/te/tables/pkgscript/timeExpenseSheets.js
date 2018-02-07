@@ -358,6 +358,7 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
     params.label = "Invoice Date";
     var newdlg = toolbox.openWindow("XDateInputDialog", mywindow, Qt.ApplicationModal, Qt.Dialog);
     toolbox.lastWindow().set(params);
+    toolbox.lastWindow().setAttribute(Qt.WA_DeleteOnClose, false);
     var returnval = newdlg.exec();
     if (returnval == 1)
     {

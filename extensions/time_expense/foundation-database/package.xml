@@ -1,0 +1,151 @@
+<package id="foundation-database"
+         name="te"
+         developer="xTuple"
+         descrip="Time and Expense System"
+         version="2.4.5"
+         updater="2.5.0Beta">
+  <pkgnotes>Time and Expense System add-on package for xTuple ERP.
+
+        This file is part of the xtte package for xTuple ERP: PostBooks Edition,
+        a free and open source Enterprise Resource Planning software suite,
+        Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple.
+        It is licensed to you under the Common Public Attribution License
+        version 1.0, the full text of which (including xTuple-specific Exhibits)
+        is available at www.xtuple.com/CPAL.  By using this software, you agree
+        to be bound by its terms.
+  </pkgnotes>
+
+  <prerequisite type="Query" name="xTuple ERP version">
+    <query>
+      SELECT compareVersion(fetchMetricText('ServerVersion'), '4.6.0') >= 0;
+    </query>
+    <message>
+      This version of the te package only works with xTuple ERP
+      versions 4.6.0 and greater.
+    </message>
+  </prerequisite>
+
+  <prerequisite type="license" name="xTuple Concise EULA">
+    <message>
+      &lt;p>
+          This file is part of the xtte package for xTuple ERP: PostBooks Edition,
+          a free and open source Enterprise Resource Planning software suite,
+          Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple.
+          It is licensed to you under the Common Public Attribution License
+          version 1.0, the full text of which (including xTuple-specific Exhibits)
+          is available at www.xtuple.com/CPAL.  By using this software, you agree
+          to be bound by its terms.
+      &lt;/p>
+    </message>
+  </prerequisite>
+
+  <initscript name = "priv.sql" />
+  <initscript name = "initscript.sql" />
+
+  <createfunction file="te/functions/calcrate.sql"      name="calcrate" />
+  <createfunction file="te/functions/copyitem.sql"      name="copyitem" />
+  <createfunction file="te/functions/invoicesheets.sql" name="invoicesheets" />
+  <createfunction file="te/functions/postsheet.sql"     name="postsheet" />
+  <createfunction file="te/functions/sheetstate.sql"    name="sheetstate" />
+  <createfunction file="te/functions/unnest.sql"        name="unnest" />
+  <createfunction file="te/functions/vouchersheet.sql"  name="vouchersheet" />
+
+  <createtable file="te/tables/tecustrate.sql"    name="tecustrate"/>
+  <createtable file="te/tables/teemp.sql"         name="teemp"/>
+  <createtable file="te/tables/teexp.sql"         name="teexp"/>
+  <createtable file="te/tables/tehead.sql"        name="tehead"/>
+  <createtable file="te/tables/teitem.sql"        name="teitem"/>
+  <createtable file="te/tables/teprj.sql"         name="teprj"/>
+  <createtable file="te/tables/teprjtask.sql"     name="teprjtask"/>
+
+  <createtrigger name="teheadtrigger" file="te/trigger_functions/tehead.sql" />
+  <createtrigger name="teitemtrigger" file="te/trigger_functions/teitem.sql" />
+  <createtrigger name="teprjtrigger" file="te/trigger_functions/teprj.sql" />
+
+  <loadappscript  file="te/tables/pkgscript/configureCRM.js"          name="configureCRM" order="0" />
+  <loadappscript  file="te/tables/pkgscript/customer.js"              name="customer" order="0" />
+  <loadappscript  file="te/tables/pkgscript/dspTimeExpenseHistory.js" name="dspTimeExpenseHistory" order="0" />
+  <loadappscript  file="te/tables/pkgscript/employee.js"              name="employee" order="0" />
+  <loadappscript  file="te/tables/pkgscript/initMenu.js"              name="initMenu" order="0" />
+  <loadappscript  file="te/tables/pkgscript/item.js"                  name="item" order="0" />
+  <loadappscript  file="te/tables/pkgscript/jsGantt.js"               name="jsGantt" order="0" />
+  <loadappscript  file="te/tables/pkgscript/jsGanttCSS.js"            name="jsGanttCSS" order="0" />
+  <loadappscript  file="te/tables/pkgscript/projectGantt.js"          name="projectGantt" order="0" />
+  <loadappscript  file="te/tables/pkgscript/project.js"               name="project" order="0" />
+  <loadappscript  file="te/tables/pkgscript/task.js"                  name="task" order="0" />
+  <loadappscript  file="te/tables/pkgscript/tebilling.js"             name="tebilling" order="0" />
+  <loadappscript  file="te/tables/pkgscript/timeExpenseSheet.js"      name="timeExpenseSheet" order="0" />
+  <loadappscript  file="te/tables/pkgscript/timeExpenseSheetItem.js"  name="timeExpenseSheetItem" order="0" />
+  <loadappscript  file="te/tables/pkgscript/timeExpenseSheets.js"     name="timeExpenseSheets" order="0" />
+  <loadappscript  file="te/tables/pkgscript/xtte.js"                  name="xtte" order="0" />
+
+  <loadappui      file="te/tables/pkguiform/dspTimeExpenseHistory.ui" />
+  <loadappui      file="te/tables/pkguiform/projectGantt.ui" />
+  <loadappui      file="te/tables/pkguiform/tebilling.ui" />
+  <loadappui      file="te/tables/pkguiform/tecustomer.ui" />
+  <loadappui      file="te/tables/pkguiform/teexpense.ui" />
+  <loadappui      file="te/tables/pkguiform/timeExpenseSheet.ui" />
+  <loadappui      file="te/tables/pkguiform/timeExpenseSheetItem.ui" />
+  <loadappui      file="te/tables/pkguiform/timeExpenseSheets.ui" />
+
+  <loadmetasql file="te/tables/pkgmetasql/customer-deltecustrate.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/customer-instecustrate.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/customer-seltecustrate.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/customer-updtecustrate.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/employee-insteemp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/employee-selteemp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/employee-updteemp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/item-delteexp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/item-insteexp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/item-selteexp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/item-updteexp.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/project-formatdates.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/project-insteprj.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/project-selteprj.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/project-updteprj.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/projectGantt-getprj.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/projectGantt-jsGantt.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/projectGantt-jsganttcss.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/projectGantt-tasks.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/task-insteprjtask.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/task-selteprjtask.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/task-updteprjtask.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensehistory-detail.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-deltehead.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-delteitem.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-detail.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-header.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-instehead.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheet-updtehead.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-detail.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-emptotals.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-getcustinfo.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-gettask.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-getterate.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-instask.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-insteitem.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-nextlinenum.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-taskbudg.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-taskdefaults.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-taskrollup.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-teitemnext.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-teitemprev.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheetitem-updteitem.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-approve.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-close.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-detail.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-invoice.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-post.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-reopen.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-unapprove.mql" />
+  <loadmetasql file="te/tables/pkgmetasql/timeexpensesheets-voucher.mql" />
+
+  <loadreport file="te/tables/pkgreport/TimeExpenseHistory.xml" />
+  <loadreport file="te/tables/pkgreport/TimeExpenseSheet.xml" />
+  <loadreport file="te/tables/pkgreport/TimeExpenseSheets.xml" />
+
+  <script file="te/patches/fixdate.sql" />
+
+  <finalscript name = "finalscript.sql" />
+  <translations/>
+</package>

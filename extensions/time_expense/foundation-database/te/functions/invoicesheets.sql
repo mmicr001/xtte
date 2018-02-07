@@ -30,9 +30,11 @@ BEGIN
          JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
          JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
          JOIN prj ON (prjtask_prj_id=prj_id)
+         LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
+         LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
        WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
         AND (teitem_billable)
-        AND (teitem_invcitem_id IS NULL))
+        AND (COALESCE(invchead_void, TRUE)))
 
        -- loop thru records and create invoices by customer, by PO for the provided headid
        LOOP
@@ -56,7 +58,7 @@ BEGIN
                 invchead_misc_amount, invchead_misc_descrip, invchead_misc_accnt_id,
                 invchead_payment, invchead_paymentref, invchead_notes,
                 invchead_billto_country, invchead_shipto_country, invchead_prj_id,
-                invchead_curr_id, invchead_gldistdate, invchead_recurring,
+                invchead_curr_id, invchead_recurring,
                 invchead_recurring_interval, invchead_recurring_type, invchead_recurring_until,
                 invchead_recurring_invchead_id, invchead_shipchrg_id, invchead_taxzone_id,
                 invchead_void, invchead_saletype_id, invchead_shipzone_id)
@@ -74,7 +76,7 @@ BEGIN
                 0, '', -1,
                 0, '', '',
                 COALESCE(addr_country,''), '', _s.prj_id, 
-                _s.teitem_curr_id, current_date, false,
+                _s.teitem_curr_id, false,
                 null, null, null,
                 null, null, cust_taxzone_id,
                 false, null, null
@@ -106,9 +108,11 @@ BEGIN
                JOIN item ON (item_id = teitem_item_id)
                JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
                JOIN prj ON (prjtask_prj_id=prj_id)
+               LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
+               LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
              WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
               AND (teitem_billable)
-              AND (teitem_invcitem_id IS NULL)
+              AND (COALESCE(invchead_void, TRUE))
               AND (item_id = teitem_item_id)
               AND (teitem_cust_id = _s.teitem_cust_id)
               AND (teitem_po = _s.teitem_po)

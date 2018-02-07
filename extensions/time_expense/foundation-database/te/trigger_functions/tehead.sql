@@ -12,8 +12,8 @@ BEGIN
     IF (OLD.tehead_status = 'O' AND NEW.tehead_status = 'A') THEN
     -- Approving so add
       _sense := 1;
-    ELSIF  (OLD.tehead_status = 'A' AND NEW.tehead_status = 'O') THEN
-    -- Unapproving so subtract
+    ELSIF  ((OLD.tehead_status = 'C' OR OLD.tehead_status = 'A') AND NEW.tehead_status = 'O') THEN
+    -- Reopening or Unapproving so subtract
       _sense := -1;
     END IF;
   END IF;
