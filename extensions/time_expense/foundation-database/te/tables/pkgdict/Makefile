@@ -17,12 +17,10 @@ all:
 	find * -name '*.ts'  -exec echo TRANSLATIONS+={} \; >> ts.pro
 
 	# exclude jsGanttCSS.js because it is really a .css file
-	$(SED_I) \
-	    -e '/jsGanttCSS.js/d' ts.pro
+	$(SED_I) -e '/jsGanttCSS.js/d' ts.pro
 
 	lupdate -no-obsolete ts.pro
 	lrelease ts.pro
-	rm ts.pro
 
 	echo '<qm>' > translations.xml
 
@@ -33,3 +31,7 @@ all:
 	done
 
 	echo '</qm>' >> translations.xml
+
+clean:
+	rm -f *.qm
+	rm -f translations.xml ts.pro
