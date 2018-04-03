@@ -84,7 +84,7 @@ xtte.projectGantt.populate = function()
       if (j == 5) barColor = "4BACC6";
       if (j == 6) { barColor = "F79646"; j = 0;}
 
-      _gantt = _gantt + "g.AddTaskItem(new JSGantt.TaskItem(" + _prjid + qryTask.value("prjtask_id") + ", '" + qryTask.value("prjtask_name") + "', '" + qryTask.value("start_date") + "', '" + qryTask.value("due_date") + "', '" + barColor + "', '', 0, '', 0, 0, " + _prjid + ", 1));";
+      _gantt = _gantt + "g.AddTaskItem(new JSGantt.TaskItem(" + _prjid + qryTask.value("task_id") + ", '" + qryTask.value("task_name") + "', '" + qryTask.value("start_date") + "', '" + qryTask.value("due_date") + "', '" + barColor + "', '', 0, '', 0, 0, " + _prjid + ", 1));";
     }
 
     _gantt = _gantt + "g.Draw();";

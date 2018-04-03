@@ -1,7 +1,7 @@
 -- Group: timeexpensesheets
 -- Name:  detail
 -- Notes: Time Expense Sheet List
---        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
 --        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT
@@ -48,15 +48,12 @@ SELECT
   CASE WHEN (tehead_status = 'O') THEN 'emphasis'
        WHEN (tehead_status = 'A') THEN 'altemphasis'
   END AS tehead_status_qtforegroundrole
-
 <? if exists("includeFormatted") ?> ,
   formatMoney(SUM(toinvoice)) AS f_total,
   formatDate(tehead_weekending) AS f_weekending
 <? endif ?>
-
   , tehead_notes
-  , SUM(total_hours) as total_hours
-  
+  , SUM(total_hours) as total_hours 
 FROM (
   SELECT
     tehead_id,
@@ -68,22 +65,17 @@ FROM (
             THEN teitem_total
          WHEN (teitem_type='T' AND teemp_contractor = TRUE) 
             THEN COALESCE(teitem_empcost, te.calcRate(emp_wage, emp_wage_period))* teitem_qty
-         ELSE 0 
-    END as tovoucher,
-         
+         ELSE 0 END as tovoucher,
     CASE WHEN (teitem_billable=TRUE) 
             THEN teitem_total
-         ELSE 0 
-    END AS toinvoice,
-
+         ELSE 0 END AS toinvoice,
     te.sheetstate(tehead_id, 'I') AS invoiced,
     te.sheetstate(tehead_id, 'V') AS vouchered,
     te.sheetstate(tehead_id, 'P') AS posted,
-	tehead_notes,
-	CASE WHEN (teitem_type='T')
-            THEN COALESCE(teitem_qty, 0)
-         ELSE 0
-    END AS total_hours	
+    tehead_notes,
+    CASE WHEN (teitem_type='T')
+         THEN COALESCE(teitem_qty, 0)
+         ELSE 0 END AS total_hours	
   FROM te.tehead
     LEFT OUTER JOIN te.teitem ON (tehead_id=teitem_tehead_id)
     JOIN emp ON (tehead_emp_id=emp_id)
@@ -93,12 +85,10 @@ FROM (
     AND (tehead_weekending <= <? value("endDate") ?> )
     AND (tehead_status IN (<? literal("statusList") ?>))
 <? if exists("emp_id") ?>
-    AND 
-        (tehead_emp_id=<? value("emp_id") ?>)
+    AND (tehead_emp_id=<? value("emp_id") ?>)
 <? endif ?>
 <? if exists("mgr_emp_id") ?>
-    AND 
-        (emp_mgr_emp_id=<? value("mgr_emp_id") ?>)
+    AND (emp_mgr_emp_id=<? value("mgr_emp_id") ?>)
 <? endif ?>
 )) AS data
 GROUP BY
@@ -110,5 +100,5 @@ GROUP BY
     invoiced,
     vouchered,
     posted,
-	tehead_notes
+    tehead_notes
 ORDER BY tehead_number;

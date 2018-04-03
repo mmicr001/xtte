@@ -1,0 +1,14 @@
+-- Group: employee
+-- Name:  saveteemp
+-- Notes: Save employee time expense record
+--        Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
+
+INSERT INTO te.teemp (
+  teemp_emp_id,
+  teemp_contractor )
+VALUES (
+  <? value("emp_id") ?>,
+  <? value("contractor") ?>)
+ON CONFLICT (teemp_emp_id) DO
+UPDATE SET teemp_contractor=<? value("contractor") ?>;

@@ -8,7 +8,7 @@
  * to be bound by its terms.
  */
 
-debugger;
+//debugger;
 
 include("xtte");
 
@@ -512,9 +512,9 @@ xtte.timeExpenseSheets.openSheet = function(mode)
       params.emp_id = _employee.id();
   }
 
-  var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.ApplicationModal);
+  var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.NonModal, Qt.Dialog);
   toolbox.lastWindow().set(params);
-  te.exec();
+//  te.exec();
   xtte.timeExpenseSheets.fillList();
 }
 
@@ -595,9 +595,9 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.populateEmployees = function()
 {
-  // getEffectiveXtUser and crmacct_emp_id were created in the same release
-  var q = toolbox.executeQuery("SELECT crmacct_emp_id AS emp_id"
+  var q = toolbox.executeQuery("SELECT emp_id"
                              + "  FROM crmacct "
+                             + "  JOIN emp ON emp_crmacct_id=crmacct_id "
                              + " WHERE crmacct_usr_username = getEffectiveXtUser();");
   // if they don't exist, try the older relationship maintained in the emp table
   if (q.lastError().type != QSqlError.NoError)

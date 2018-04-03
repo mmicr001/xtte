@@ -47,8 +47,8 @@ WHERE (tehead_id=&lt;? value("tehead_id") ?>);
   formatDate(teitem_workdate) AS f_workdate,
   prj_number,
   prj_name,
-  prjtask_number,
-  prjtask_name,
+  task_number,
+  task_name,
   cust_number,
   cust_name,
   item_number,
@@ -64,8 +64,8 @@ WHERE (tehead_id=&lt;? value("tehead_id") ?>);
   formatBoolYN(teitem_billable) AS f_billable,
   teitem_notes
 FROM te.teitem
-  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN task ON (teitem_prjtask_id=task_id)
+  JOIN prj ON (task_prj_id=prj_id)
   JOIN item ON (item_id=teitem_item_id)
   LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
 WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
@@ -79,8 +79,8 @@ ORDER BY teitem_tehead_id, teitem_workdate, teitem_linenumber;</sql>
   formatDate(teitem_workdate) AS f_workdate,
   prj_number,
   prj_name,
-  prjtask_number,
-  prjtask_name,
+  task_number,
+  task_name,
   cust_number,
   cust_name,
   item_number,
@@ -101,8 +101,8 @@ ORDER BY teitem_tehead_id, teitem_workdate, teitem_linenumber;</sql>
   formatBoolYN(teitem_billable) AS f_billable,
   teitem_notes
 FROM te.teitem
-  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN task ON (teitem_prjtask_id=task_id)
+  JOIN prj ON (task_prj_id=prj_id)
   JOIN item ON (item_id=teitem_item_id)
   LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
 WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
@@ -138,8 +138,8 @@ CASE WHEN (
            ELSE 'No Priv' END AS title
 
 FROM te.teitem
-  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN task ON (teitem_prjtask_id=task_id)
+  JOIN prj ON (task_prj_id=prj_id)
   JOIN item ON (item_id=teitem_item_id)
   LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
 WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
@@ -153,8 +153,8 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
   prj_number,
   SUM(teitem_total) AS total
 FROM te.teitem
-  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN task ON (teitem_prjtask_id=task_id)
+  JOIN prj ON (task_prj_id=prj_id)
   JOIN item ON (item_id=teitem_item_id)
   LEFT OUTER JOIN custinfo ON (cust_id=teitem_cust_id)
 WHERE ((teitem_tehead_id=&lt;? value("tehead_id") ?>)
@@ -648,7 +648,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <vcenter/>
     <data>
      <query>time</query>
-     <column>prjtask_name</column>
+     <column>task_name</column>
     </data>
    </field>
    <field>
@@ -743,7 +743,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <vcenter/>
     <data>
      <query>time</query>
-     <column>prjtask_number</column>
+     <column>task_number</column>
     </data>
    </field>
    <field>
@@ -1464,7 +1464,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <vcenter/>
     <data>
      <query>expense</query>
-     <column>prjtask_number</column>
+     <column>task_number</column>
     </data>
    </field>
    <field>
@@ -1483,7 +1483,7 @@ GROUP BY teitem_tehead_id, prj_number;</sql>
     <vcenter/>
     <data>
      <query>expense</query>
-     <column>prjtask_name</column>
+     <column>task_name</column>
     </data>
    </field>
    <field>

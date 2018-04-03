@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -24,8 +24,8 @@ _list.addColumn(qsTr("Type"),         XTreeWidget.dateColumn,  Qt.AlignLeft,  tr
 _list.addColumn(qsTr("Status"),       XTreeWidget.dateColumn,  Qt.AlignLeft,  true,  "tehead_status");
 _list.addColumn(qsTr("Project#"),     XTreeWidget.orderColumn, Qt.AlignLeft,  true,  "prj_number");
 _list.addColumn(qsTr("Project Name"), -1,                      Qt.AlignLeft,  false, "prj_name");
-_list.addColumn(qsTr("Task#"),        XTreeWidget.orderColumn, Qt.AlignLeft,  false, "prjtask_number");
-_list.addColumn(qsTr("Task Name"),    -1,                      Qt.AlignLeft,  false, "prjtask_name");
+_list.addColumn(qsTr("Task#"),        XTreeWidget.orderColumn, Qt.AlignLeft,  false, "task_number");
+_list.addColumn(qsTr("Task Name"),    -1,                      Qt.AlignLeft,  false, "task_name");
 _list.addColumn(qsTr("Cust.#"),       XTreeWidget.orderColumn, Qt.AlignLeft,  false, "cust_number");
 _list.addColumn(qsTr("Cust. Name"),   -1,                      Qt.AlignLeft,  false, "cust_name");
 _list.addColumn(qsTr("PO"),           XTreeWidget.orderColumn, Qt.AlignLeft,  false, "teitem_po");

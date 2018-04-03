@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION te.triggertehead() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 _r RECORD;
@@ -27,13 +27,13 @@ BEGIN
 
     LOOP
       IF (_r.teitem_type = 'T') THEN
-        UPDATE prjtask SET 
-          prjtask_hours_actual = prjtask_hours_actual + _r.teitem_qty * _sense
-        WHERE prjtask_id = _r.teitem_prjtask_id;
+        UPDATE task SET 
+          task_hours_actual = task_hours_actual + _r.teitem_qty * _sense
+        WHERE task_id = _r.teitem_prjtask_id;
       ELSE
-        UPDATE prjtask SET 
-          prjtask_exp_actual = prjtask_exp_actual + _r.teitem_total * _sense
-        WHERE prjtask_id = _r.teitem_prjtask_id;
+        UPDATE task SET 
+          task_exp_actual = task_exp_actual + _r.teitem_total * _sense
+        WHERE task_id = _r.teitem_prjtask_id;
       END IF;
             
     END LOOP;

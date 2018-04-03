@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION te.vouchersheet(integer) RETURNS integer AS $$
--- Copyright (c) 1999-2014 by OpenMFG LLC, d/b/a xTuple.
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   pHeadID ALIAS FOR $1;
@@ -50,7 +50,7 @@ BEGIN
 
      FOR _s IN
        SELECT teitem_id,       teitem_linenumber, teitem_workdate, teitem_type,
-              item_number,     teitem_item_id,    teitem_qty,      prjtask_prj_id,
+              item_number,     teitem_item_id,    teitem_qty,      task_prj_id,
               CASE
                 WHEN teitem_empcost > 0 THEN teitem_empcost
                 ELSE te.calcRate(_v.emp_wage, _v.emp_wage_period)
@@ -60,7 +60,7 @@ BEGIN
          FROM te.teitem
          JOIN te.teexp ON (teitem_item_id=teexp_id)
          JOIN item     ON (teitem_item_id=item_id)
-         JOIN prjtask  ON (teitem_prjtask_id=prjtask_id)
+         JOIN task  ON (teitem_prjtask_id=task_id)
         WHERE ((teitem_tehead_id = _v.tehead_id)
            AND (teitem_curr_id   = _v.teitem_curr_id)
            AND (teitem_prepaid   = false)
@@ -75,9 +75,9 @@ BEGIN
 
         -- Map expense directly to account so we can get project account mapping if applicable
         IF (_s.teexp_accnt_id > 1) THEN
-          _glaccnt := getPrjAccntId(_s.prjtask_prj_id, _s.teexp_accnt_id);
+          _glaccnt := getPrjAccntId(_s.task_prj_id, _s.teexp_accnt_id);
         ELSE
-          SELECT getPrjAccntId(_s.prjtask_prj_id, expcat_exp_accnt_id) INTO _glaccnt
+          SELECT getPrjAccntId(_s.task_prj_id, expcat_exp_accnt_id) INTO _glaccnt
             FROM expcat
            WHERE (expcat_id=_s.teexp_expcat_id);
         END IF;

@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -82,11 +82,7 @@ xtte.project.save = function(prjId)
     params.curr_id	= _rate.id();
   }
 
-  var query = "updteprj";
-  if (_teprjid == -1)
-    query = "insteprj";
-
-  var q = toolbox.executeDbQuery("project", query, params);
+  var q = toolbox.executeDbQuery("project", "saveteprj", params);
   xtte.errorCheck(q);
 }
 
@@ -153,16 +149,17 @@ xtte.project.openTask = function(mode)
   params.mode = mode;
   if (mode == "new")
   {
-  params.prj_id = _prjid;
-  params.prj_owner_username = _owner.username();
-  params.prj_username = _assignedTo.username();
-  params.prj_start_date = _started.date;
-  params.prj_due_date = _due.date;
-  params.prj_assigned_date = _assigned.date;
-  params.prj_completed_date = _completed.date;
+    params.parent = "J";
+    params.parent_id = _prjid;
+    params.parent_owner_username = _owner.username();
+    params.parent_username = _assignedTo.username();
+    params.parent_start_date = _started.date;
+    params.parent_due_date = _due.date;
+    params.parent_assigned_date = _assigned.date;
+    params.parent_completed_date = _completed.date;
   }
   else
-    params.prjtask_id = _prjtask.id();
+    params.task_id = _prjtask.id();
   if (_cust.isValid())
     params.cust_id = _cust.id();
 

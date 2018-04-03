@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -48,14 +48,10 @@ if (privileges.check("CanViewRates"))
     params.cust_id       = _custid;
     params.curr_id       = _rate.id();
     params.rate          = _rate.localValue;
-
-    var query = "updtecustrate";
     if (!_billingGroup.checked)
-      query = "deltecustrate";
-    else if (_tecustrateid == -1)
-      query = "instecustrate";
+      params.delcust = true;
 
-    var q = toolbox.executeDbQuery("customer", query, params);
+    var q = toolbox.executeDbQuery("customer", "savetecustrate", params);
     if (q.first())
       _tecustrateid = q.value("tecustrate_id");
     else

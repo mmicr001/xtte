@@ -1,14 +1,14 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
  * to be bound by its terms.
  */
 
-debugger;
+// debugger;
 var _debug = false;
 include("xtte");
 
@@ -43,15 +43,13 @@ try
   var _admin;
 
   _lines.addColumn(qsTr("Type"),		XTreeWidget.docTypeColumn,Qt.AlignLeft,    false,  "teitem_type");
-
-  //add logic to determine the next Sunday date and populate both start and end with it
   _lines.addColumn(qsTr("Line #"),        XTreeWidget.seqColumn,    Qt.AlignLeft,    true,   "teitem_linenumber");
   _lines.addColumn(qsTr("Sheet Date"),    XTreeWidget.dateColumn,   Qt.AlignLeft,    false,  "tehead_weekending");
   _lines.addColumn(qsTr("Work Date"),     XTreeWidget.dateColumn,   Qt.AlignLeft,    true,   "teitem_workdate");
   _lines.addColumn(qsTr("Project#"),      XTreeWidget.orderColumn,  Qt.AlignLeft,    true,   "prj_number");
   _lines.addColumn(qsTr("Project Name"),  -1,                       Qt.AlignLeft,    false,  "prj_name");
-  _lines.addColumn(qsTr("Task#"),         XTreeWidget.orderColumn,  Qt.AlignLeft,    true,   "prjtask_number");
-  _lines.addColumn(qsTr("Task Name"),     -1,                       Qt.AlignLeft,    false,  "prjtask_name");
+  _lines.addColumn(qsTr("Task#"),         XTreeWidget.orderColumn,  Qt.AlignLeft,    true,   "task_number");
+  _lines.addColumn(qsTr("Task Name"),     -1,                       Qt.AlignLeft,    false,  "task_name");
   _lines.addColumn(qsTr("Cust.#"),        XTreeWidget.orderColumn,  Qt.AlignLeft,    false,  "cust_number");
   _lines.addColumn(qsTr("Cust. Name"),    -1,                       Qt.AlignLeft,    false,  "cust_name");
   _lines.addColumn(qsTr("PO"),            XTreeWidget.orderColumn,  Qt.AlignLeft,    false,  "teitem_po");
@@ -278,9 +276,9 @@ xtte.timeExpenseSheet.openItem = function(mode)
     if (mode) // Not new
       params.teitem_id = _lines.id();
 
-    var wnd = toolbox.openWindow("timeExpenseSheetItem", mywindow);
+    var wnd = toolbox.openWindow("timeExpenseSheetItem", mywindow, Qt.NonModal, Qt.Dialog);
     toolbox.lastWindow().set(params);
-    wnd.exec();
+//    wnd.exec();
 
     xtte.timeExpenseSheet.fillList();
   }
@@ -426,8 +424,9 @@ xtte.timeExpenseSheet.testCurrEmpId = function()
 {
   var params = new Object;
   params.emp_id = _employee.id();
-  qry = toolbox.executeQuery("SELECT crmacct_emp_id = <? value('emp_id') ?>::integer AS test "
+  qry = toolbox.executeQuery("SELECT emp_id = <? value('emp_id') ?>::integer AS test "
                      + "FROM  crmacct "
+                     + " JOIN emp ON emp_crmacct_id=crmacct_id "
                      + "WHERE crmacct_usr_username = getEffectiveXtUser();", params);
   if (qry.first()) {
     return qry.value("test");

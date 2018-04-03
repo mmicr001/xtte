@@ -1,7 +1,7 @@
 -- Group: timeexpensehistory
 -- Name:  detail
 -- Notes: 
---        Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+--        Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
 --        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT
@@ -12,7 +12,7 @@ SELECT
   tehead.*, tehead_number || '-' || teitem_linenumber::text AS f_sheet_number,
   emp_code,
   prj_number, prj_name,
-  prjtask_number, prjtask_name,
+  task_number, task_name,
   CASE WHEN (tehead_status='O') THEN 
     <? value("open") ?> 
   WHEN (tehead_status='A') THEN
@@ -51,8 +51,8 @@ FROM te.tehead
 <? if exists("custtype_pattern") ?>
   JOIN custtype ON (cust_custtype_id=custtype_id)
 <? endif ?>
-  JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-  JOIN prj ON (prjtask_prj_id=prj_id)
+  JOIN task ON (teitem_prjtask_id=task_id)
+  JOIN prj ON (task_prj_id=prj_id)
 <? if exists("custgrp_id") ?>
   JOIN custgrpitem ON (custgrpitem_cust_id=cust_id)
 <? endif ?>
