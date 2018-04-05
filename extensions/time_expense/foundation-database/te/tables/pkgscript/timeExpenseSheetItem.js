@@ -345,7 +345,8 @@ xtte.timeExpenseSheetItem.save = function()
   params.teitem_linenumber     = _linenum;
   params.teitem_type 	       = _type.code;
   params.teitem_workdate       = _workdate.date;
-  params.teitem_cust_id        = _clients.id();
+  if (_clients.id() > 0)
+    params.teitem_cust_id      = _clients.id();
   params.teitem_po             = _po.text;
   params.teitem_item_id        = _items.id();
   params.teitem_qty            = _hours.toDouble();
