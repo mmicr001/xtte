@@ -9,6 +9,7 @@ SELECT
   (task_number || ' - ' || task_name) AS name 
 FROM task 
 WHERE (task_prj_id = <? value("prj_id") ?>)
+  AND task_parent_type = 'J' 
 <? if exists("active") ?>
   AND (task_status IN ('O','P'))
 <? endif ?>

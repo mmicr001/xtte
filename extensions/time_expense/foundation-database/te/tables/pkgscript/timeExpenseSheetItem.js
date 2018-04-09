@@ -304,6 +304,7 @@ xtte.timeExpenseSheetItem.prepare = function(params)
   _task.setId(params.task_id);
   _clients.setId(params.cust_id);
   _notes.plainText = params.note;
+  _hours.text = "";
   _hours.setFocus();
 } 
 xtte.timeExpenseSheetItem.accepted = function()
