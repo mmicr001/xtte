@@ -15,7 +15,7 @@ var _tab = mywindow.findChild("_tab");
 var _project = mywindow.findChild("_project"); 
 var _tebilling = toolbox.loadUi("tebilling", mywindow);
 _tab.insertTab(2, _tebilling, qsTr("Billing"));
-_tab.setTabEnabled(_tab.indexOf(_tebilling), privileges.check("CanViewRates"));
+_tab.setTabEnabled(_tab.indexOf(_tebilling), privileges.check("CanMaintainRates CanViewRates"));
 
 var _number = mywindow.findChild("_number");
 var _actualHours = mywindow.findChild("_actualHours");
@@ -58,7 +58,7 @@ set = function(input)
 
   if("mode" in input)
   {
-    if (input.mode == "view")
+    if (input.mode == "view" || !privileges.check("CanMaintainRates"))
     {
       _cust.enabled = false;
       _billingGroup.enabled = false;

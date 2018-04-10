@@ -5,6 +5,7 @@ declare
       [ 'MaintainTimeExpenseOthers', 'Allowed to Maintain Time/Exp Sheets for all users' ],
       [ 'MaintainTimeExpenseSelf',   'Allowed to Maintain Time/Exp Sheets' ],
       [ 'MaintainTimeExpense',       'Allowed to Maintain Time/Exp Sheets' ],
+      [ 'CanMaintainRates',          'Allowed to maintain Billing settings in Projects and Tasks' ],
       [ 'CanViewRates',              'Allowed to view rates in the Time Entries' ],
       [ 'MaintainEmpCostAll',        'Allowed to maintain employee costs for all users' ],
       [ 'MaintainEmpCostSelf',       'Allowed to maintain own employee costs' ],
