@@ -2,7 +2,7 @@
   "author": "xTuple <dev@xtuple.com>",
   "name": "xtte",
   "description": "xTuple Enterprise Resource Planning Time and Expense extension",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/xtuple/xtte.git"
