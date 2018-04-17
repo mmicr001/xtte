@@ -26,7 +26,8 @@ select xt.add_column('tehead','tehead_username', 'text', '', 'te');
 select xt.add_primary_key('tehead', 'tehead_id', 'te');
 
 alter table te.tehead alter column tehead_username set default geteffectivextuser();
-select xt.add_constraint('tehead', 'tehead_tehead_status_check', $$check (tehead_status = any (array['O'::bpchar, 'A'::bpchar, 'C'::bpchar]))$$, 'te');
+select xt.add_constraint('tehead', 'tehead_tehead_status_check', $$check (tehead_status = any (array['O'::bpchar, 'A'::bpchar, 'C'::bpchar]))$$, 'te'),
+       xt.add_constraint('tehead', 'tehead_emp_id_fk', 'FOREIGN KEY (tehead_emp_id) REFERENCES emp(emp_id)', 'te');
 
 comment on table te.tehead is 'Time/Expense Worksheet Header';
 grant all on sequence te.tehead_tehead_id_seq to xtrole;
