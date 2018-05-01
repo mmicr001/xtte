@@ -28,11 +28,11 @@ var _item = _tebilling.findChild("_item");
 var _useItem = _tebilling.findChild("_useItem");
 var _teprjtaskid = -1; 
 var _prjtaskid = -1;
+var tehead;
 
-var _worksheets = toolbox.createWidget("QPushButton", mywindow, "_worksheets");
+var _worksheets = new QPushButton(qsTr("Open Worksheets"), mywindow, "_worksheets");
 _worksheets.text = qsTr("Open Worksheets");
-
-var _worksheet = toolbox.createWidget("QPushButton", mywindow, "_worksheet");
+var _worksheet = new QPushButton(qsTr("Add to Worksheet"), mywindow, "_worksheet");
 _worksheet.text = qsTr("Add to Worksheet");
 _worksheet.setEnabled(false);
 
@@ -74,9 +74,8 @@ xtte.task.save = function(prjtaskId)
   if (prjtaskId <= 0)
     return;
 
-  var params = new Object();
-  params.teprjtask_id	= _teprjtaskid;
-  params.prjtask_id	= prjtaskId;
+  var params = {teprjtask_id: _teprjtaskid,
+                prjtask_id:   prjtaskId};
   if (_cust.isValid())
     params.cust_id  	= _cust.id();
   if (_billingGroup.checked)
@@ -93,10 +92,7 @@ xtte.task.save = function(prjtaskId)
 
 xtte.task.populate = function()
 {
-  var params = new Object();
-  params.prjtask_id = _prjtaskid;    
-
-  var q = toolbox.executeDbQuery("task", "selteprjtask", params);
+  var q = toolbox.executeDbQuery("task", "selteprjtask", {prjtask_id: _prjtaskid});
 
   if (q.first())
   {
@@ -128,11 +124,13 @@ xtte.task.populate = function()
 
 xtte.task.handleProject = function()
 {
-  _worksheet.setEnabled(_project.isValid());
+  _worksheet.enabled = _project.isValid();
 }
 
 function postWorksheet()
 {
+  var params = {mode:      xtte.newMode,
+                task_id:   _prjtaskid};
   try 
   {
     sGetTeHead();
@@ -140,18 +138,15 @@ function postWorksheet()
       QMessageBox.information(mywindow, "Missing Timesheet", "There is no active Worksheet.");
     else 
     {
+      params.tehead_id = tehead.id;
       var tsDetails = toolbox.executeDbQuery("task", "getWorksheetDetails", {task_id: _prjtaskid});
       if (tsDetails.first())
       {
-        var params = {mode: xtte.newMode,
-                      tehead_id: tehead.id,
-                      prj_id: tsDetails.value("task_prj_id"),
-                      task_id: _prjtaskid,
-                      note: tsDetails.value("task_descrip"),
-                      number: tsDetails.value("task_number"),
-                      cust_id: tsDetails.value("cust_id"),
-                      fromtask:  true
-                     };
+        params.prj_id   = tsDetails.value("task_prj_id");
+        params.note     = tsDetails.value("task_descrip");
+        params.number   = tsDetails.value("task_number");
+        params.cust_id  = tsDetails.value("cust_id");
+        params.fromtask = true;
       }
 
       var tmp = toolbox.openWindow("timeExpenseSheetItem", mywindow, Qt.NonModal, Qt.Dialog);

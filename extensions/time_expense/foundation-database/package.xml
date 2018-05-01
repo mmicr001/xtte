@@ -3,7 +3,7 @@
          developer="xTuple"
          descrip="Time and Expense System"
          version="2.4.6"
-         updater="2.5.0Beta">
+         updater="2.5.0">
   <pkgnotes>Time and Expense System add-on package for xTuple ERP.
 
         This file is part of the xtte package for xTuple ERP: PostBooks Edition,
@@ -17,7 +17,7 @@
 
   <prerequisite type="Query" name="xTuple ERP version">
     <query>
-      SELECT compareVersion(fetchMetricText('ServerVersion'), '5.0.0') >= 0;
+      SELECT compareVersion(fetchMetricText('ServerVersion'), '5.0.0-alpha') >= 0;
     </query>
     <message>
       This version of the te package only works with xTuple ERP

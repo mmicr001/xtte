@@ -147,10 +147,11 @@ xtte.project.openTask = function(mode)
 {
   params = new Object;
   params.mode = mode;
+  params.parent = "J";
+  params.parent_id = _prjid;
+
   if (mode == "new")
   {
-    params.parent = "J";
-    params.parent_id = _prjid;
     params.parent_owner_username = _owner.username();
     params.parent_username = _assignedTo.username();
     params.parent_start_date = _started.date;

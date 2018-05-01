@@ -307,6 +307,7 @@ xtte.timeExpenseSheetItem.prepare = function(params)
   _hours.text = "";
   _hours.setFocus();
 } 
+
 xtte.timeExpenseSheetItem.accepted = function()
 {
   if (xtte.timeExpenseSheetItem.save())
@@ -351,7 +352,7 @@ xtte.timeExpenseSheetItem.save = function()
     var msg = qsTr("The system only supports vouchering positive expense quantities and amounts.  "
             +      "Do you want to save anyway?")
     if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
-        QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
+        QMessageBox.Yes | QMessageBox.No, QMessageBox.No) == QMessageBox.No)
       return false;
   }
 
@@ -388,6 +389,8 @@ xtte.timeExpenseSheetItem.save = function()
 
   _prev.enabled = true;
 
+  mainwindow.sEmitSignal("teItem", -1);
+
   return true;
 }
 
@@ -423,7 +426,7 @@ xtte.timeExpenseSheetItem.typeChanged = function()
        var msg = qsTr("The Employee is not a Vendor, this expense cannot be vouchered.  "
                +      "Do you want to continue?")
        if (QMessageBox.question( mywindow, mywindow.windowTitle, msg,
-             QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)
+             QMessageBox.Yes | QMessageBox.No, QMessageBox.No) == QMessageBox.No)
        {
          _type.code= "T";
          return false;

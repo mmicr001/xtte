@@ -523,11 +523,18 @@ xtte.timeExpenseSheet.close = function()
   }
 }
 
+xtte.timeExpenseSheet.itemUpdated = function(source, id)
+{
+  if (source == "teItem")
+    xtte.timeExpenseSheet.fillList();
+}
+
 // Initialize
 _employee.enabled = privileges.check("MaintainTimeExpenseOthers");
 _new.enabled = false;
 
 // Make connections
+mainwindow["emitSignal(QString, int)"].connect(xtte.timeExpenseSheet.itemUpdated);
 _employee.newId.connect(xtte.timeExpenseSheet.handleNewButton);
 _weekending.newDate.connect(xtte.timeExpenseSheet.handleNewButton);
 _lines["valid(bool)"].connect(_view["setEnabled(bool)"]);

@@ -7,12 +7,8 @@
 SELECT 
   task_id, 
   task_name, 
-  EXTRACT('day' FROM task_start_date) || '/' || 
-  EXTRACT('month' FROM task_start_date) || '/' || 
-  EXTRACT('year' FROM task_start_date)  AS start_date,
-  EXTRACT('day' FROM task_due_date) || '/' || 
-  EXTRACT('month' FROM task_due_date) || '/' || 
-  EXTRACT('year' FROM task_due_date)  AS due_date 
+  formatDate(task_start_date) AS start_date,
+  formatDate(task_due_date) AS due_date 
 FROM (
   SELECT 
     task_id,

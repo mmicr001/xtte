@@ -595,7 +595,8 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.populateEmployees = function()
 {
-  var q = toolbox.executeQuery("SELECT emp_id"
+  var empActive;
+  var q = toolbox.executeQuery("SELECT emp_id, emp_active"
                              + "  FROM crmacct "
                              + "  JOIN emp ON emp_crmacct_id=crmacct_id "
                              + " WHERE crmacct_usr_username = getEffectiveXtUser();");
@@ -609,21 +610,8 @@ xtte.timeExpenseSheets.populateEmployees = function()
   {
     _employee.setId(q.value("emp_id"));
     _manager.setId(q.value("emp_id"));
-  }
-
-  // determine if the current user is active
-  currSql = "SELECT emp_active "
-          + "FROM  emp "
-          + "WHERE emp_id = <? value('emp_id') ?>";
-
-  var params   = new Object();
-  params.emp_id = _employee.id(); 
-
-  var empActive;
- 
-  q = toolbox.executeQuery(currSql,params);
-  if (q.first()) 
     empActive = q.value("emp_active");
+  }
 
   if (privileges.check("MaintainTimeExpenseOthers"))
   {

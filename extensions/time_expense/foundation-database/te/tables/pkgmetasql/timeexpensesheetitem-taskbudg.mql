@@ -5,9 +5,9 @@
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT
-  formatqty(task_hours_budget) as budget_hours,
-  formatqty(task_hours_actual) as actual_hours,
-  formatmoney(task_exp_budget) as budget_cost,
-  formatmoney(task_exp_actual) as actual_cost 
+  task_hours_budget as budget_hours,
+  task_hours_actual as actual_hours,
+  task_exp_budget as budget_cost,
+  task_exp_actual as actual_cost 
 FROM task 
 WHERE task_id = <? value("task_id") ?>;
