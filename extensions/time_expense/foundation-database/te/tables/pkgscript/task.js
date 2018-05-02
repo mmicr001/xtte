@@ -44,6 +44,10 @@ _teLayout.addItem(_tespacer, 5, 1);
 
 set = function(input)
 {
+
+  if ("isTemplate" in input)
+    _tab.removeTab(_tab.indexOf(_tebilling));
+
   if("task_id" in input)
   {
     _prjtaskid = input.task_id;
