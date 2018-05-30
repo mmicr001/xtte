@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION te.postsheet(integer, text, text) RETURNS integer AS $$
--- Copyright (c) 1999-2014 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 pTeheadId ALIAS FOR $1;
@@ -45,8 +45,8 @@ BEGIN
      JOIN item ON (teitem_item_id=item_id)
      JOIN te.teexp ON (teitem_item_id=teexp_id)
      JOIN emp ON (tehead_emp_id=emp_id)
-     JOIN prjtask ON (prjtask_id=teitem_prjtask_id)
-     JOIN prj ON (prj_id=prjtask_prj_id)
+     JOIN task ON (task_id=teitem_prjtask_id)
+     JOIN prj ON (prj_id=task_prj_id)
     WHERE ((tehead_id = pTeheadId)
      AND (NOT teitem_posted)
      AND (teitem_vodist_id IS NULL)

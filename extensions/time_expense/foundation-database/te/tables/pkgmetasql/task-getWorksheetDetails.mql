@@ -1,0 +1,19 @@
+-- Group: task
+-- Name:  getWorksheetDetails
+-- Notes: 
+-- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+-- See www.xtuple.com/CPAL for the full text of the software license.
+
+SELECT task_parent_type,
+       task_parent_id,
+       task_prj_id,
+       COALESCE(crmacct_id, incdt_crmacct_id, ophead_crmacct_id, prj_crmacct_id) as crmacct_id,
+       task_number,
+       task_descrip,
+       (SELECT cust_id FROM custinfo WHERE cust_crmacct_id = COALESCE(crmacct_id, incdt_crmacct_id, ophead_crmacct_id, prj_crmacct_id)) AS cust_id
+FROM task
+LEFT OUTER JOIN crmacct ON (crmacct_id=task_parent_id AND task_parent_type='CRMA')
+LEFT OUTER JOIN incdt ON (incdt_id=task_parent_id AND task_parent_type='INCDT')
+LEFT OUTER JOIN ophead ON (ophead_id=task_parent_id AND task_parent_type='OPP')
+LEFT OUTER JOIN prj ON (prj_id=task_parent_id AND task_parent_type='J')
+WHERE task_id = <? value("task_id") ?>

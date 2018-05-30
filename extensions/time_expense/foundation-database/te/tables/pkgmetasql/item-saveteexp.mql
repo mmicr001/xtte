@@ -1,0 +1,23 @@
+-- Group: item
+-- Name:  saveteexp
+-- Notes: Insert item expense settings
+--        Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
+--        See www.xtuple.com/CPAL for the full text of the software license.
+
+<? if exists("delitem") ?>
+  DELETE FROM te.teexp
+  WHERE (teexp_id=<? value("item_id") ?>);
+<? else ?>
+  INSERT INTO te.teexp (
+    teexp_id,
+    teexp_expcat_id,
+    teexp_accnt_id )
+  VALUES (
+    <? value("item_id") ?>,
+    <? value("expcat_id") ?>,
+    <? value("accnt_id") ?>)
+  ON CONFLICT (teexp_id) DO UPDATE SET
+    teexp_expcat_id=<? value("expcat_id") ?>,
+    teexp_accnt_id=<? value("accnt_id") ?>;
+<? endif ?>
+

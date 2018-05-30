@@ -8,7 +8,7 @@
  * to be bound by its terms.
  */
 
-debugger;
+//debugger;
 
 include("xtte");
 
@@ -512,9 +512,9 @@ xtte.timeExpenseSheets.openSheet = function(mode)
       params.emp_id = _employee.id();
   }
 
-  var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.ApplicationModal);
+  var te = toolbox.openWindow("timeExpenseSheet", mywindow, Qt.NonModal, Qt.Dialog);
   toolbox.lastWindow().set(params);
-  te.exec();
+//  te.exec();
   xtte.timeExpenseSheets.fillList();
 }
 
@@ -595,9 +595,10 @@ xtte.timeExpenseSheets.printReport = function()
 
 xtte.timeExpenseSheets.populateEmployees = function()
 {
-  // getEffectiveXtUser and crmacct_emp_id were created in the same release
-  var q = toolbox.executeQuery("SELECT crmacct_emp_id AS emp_id"
+  var empActive;
+  var q = toolbox.executeQuery("SELECT emp_id, emp_active"
                              + "  FROM crmacct "
+                             + "  JOIN emp ON emp_crmacct_id=crmacct_id "
                              + " WHERE crmacct_usr_username = getEffectiveXtUser();");
   // if they don't exist, try the older relationship maintained in the emp table
   if (q.lastError().type != QSqlError.NoError)
@@ -609,21 +610,8 @@ xtte.timeExpenseSheets.populateEmployees = function()
   {
     _employee.setId(q.value("emp_id"));
     _manager.setId(q.value("emp_id"));
-  }
-
-  // determine if the current user is active
-  currSql = "SELECT emp_active "
-          + "FROM  emp "
-          + "WHERE emp_id = <? value('emp_id') ?>";
-
-  var params   = new Object();
-  params.emp_id = _employee.id(); 
-
-  var empActive;
- 
-  q = toolbox.executeQuery(currSql,params);
-  if (q.first()) 
     empActive = q.value("emp_active");
+  }
 
   if (privileges.check("MaintainTimeExpenseOthers"))
   {

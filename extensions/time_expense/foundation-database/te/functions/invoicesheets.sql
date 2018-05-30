@@ -1,15 +1,9 @@
-CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[]) RETURNS integer AS $$
--- Copyright (c) 1999-2015 by OpenMFG LLC, d/b/a xTuple. 
--- See www.xtuple.com/CPAL for the full text of the software license.
-
-BEGIN
-  RETURN te.invoicesheets(pHeadIDs, CURRENT_DATE);
-END;
-$$ LANGUAGE plpgsql;
+DROP FUNCTION IF EXISTS te.invoicesheets(integer[]);
+DROP FUNCTION IF EXISTS te.invoicesheets(integer[], date);
 
 CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[],
-                                            pInvcdate date) RETURNS integer AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+                                            pInvcdate date DEFAULT CURRENT_DATE) RETURNS integer AS $$
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 _invcnum text;
@@ -28,8 +22,8 @@ BEGIN
                    teitem_curr_id
        FROM te.tehead 
          JOIN te.teitem ON (teitem_tehead_id=tehead_id AND teitem_billable)
-         JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-         JOIN prj ON (prjtask_prj_id=prj_id)
+         JOIN task ON (teitem_prjtask_id=task_id)
+         JOIN prj ON (task_prj_id=prj_id)
          LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
          LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
        WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )
@@ -106,8 +100,8 @@ BEGIN
                JOIN te.tehead ON (teitem_tehead_id = tehead_id)
                JOIN custinfo ON (cust_id = teitem_cust_id)
                JOIN item ON (item_id = teitem_item_id)
-               JOIN prjtask ON (teitem_prjtask_id=prjtask_id)
-               JOIN prj ON (prjtask_prj_id=prj_id)
+               JOIN task ON (teitem_prjtask_id=task_id)
+               JOIN prj ON (task_prj_id=prj_id)
                LEFT OUTER JOIN invcitem ON teitem_invcitem_id=invcitem_id
                LEFT OUTER JOIN invchead ON invcitem_invchead_id=invchead_id
              WHERE ((tehead_id IN (SELECT * FROM te.unnest(pHeadIDs) ) )

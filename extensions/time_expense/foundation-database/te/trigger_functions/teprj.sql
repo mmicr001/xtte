@@ -1,7 +1,7 @@
 DROP TRIGGER IF EXISTS teprjtrigger ON te.teprj;
 
 CREATE OR REPLACE FUNCTION te.triggerteprj() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _update BOOLEAN := false;
@@ -17,9 +17,9 @@ BEGIN
 
   IF (_update) THEN
       UPDATE te.teprjtask SET teprjtask_cust_id=NEW.teprj_cust_id
-      FROM prjtask
-      WHERE ((teprjtask_prjtask_id=prjtask_id)
-      AND (prjtask_prj_id=NEW.teprj_prj_id));
+      FROM task
+      WHERE teprjtask_prjtask_id=task_id
+      AND task_parent_id=NEW.teprj_prj_id;
   END IF;
   
   RETURN NEW;

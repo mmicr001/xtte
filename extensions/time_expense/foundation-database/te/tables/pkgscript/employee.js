@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -48,11 +48,7 @@ xtte.employee.save = function(empId)
   params.emp_id	= empId;
   params.contractor	= _contractor.checked;
 
-  var query = "updteemp";
-  if (_teempid == -1)
-    query = "insteemp";
-
-  var q = toolbox.executeDbQuery("employee", query, params);
+  var q = toolbox.executeDbQuery("employee", "saveteemp", params);
   xtte.errorCheck(q);
 }
 

@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -52,14 +52,10 @@ xtte.item.save = function(id)
   params.item_id = id;
   params.expcat_id = _expcat.id();
   params.accnt_id = _account.id();
-
-  var query = "updteexp";
   if (!_projectExpense.checked || _itemtype.currentIndex != 3)
-    query = "delteexp";
-  else if (_isnew)
-    query = "insteexp";
+    params.delitem = true;
 
-  var q = toolbox.executeDbQuery("item", query, params);
+  var q = toolbox.executeDbQuery("item", "saveteexp", params);
   xtte.errorCheck(q);
 }
 

@@ -1,34 +1,33 @@
 -- Group: timeexpensesheetitem
 -- Name:  instask
 -- Notes: Insert a default Project Task
--- Copyright (c) 1999-2015 by OpenMFG LLC, d/b/a xTuple.
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
-INSERT INTO prjtask
- ( prjtask_id,
-   prjtask_number,
-   prjtask_name,
-   prjtask_descrip,
-   prjtask_prj_id,
-   prjtask_anyuser,
-   prjtask_status,
-  prjtask_hours_budget,
-  prjtask_hours_actual,
-  prjtask_exp_budget,
-  prjtask_exp_actual,
-  prjtask_owner_username,
-  prjtask_start_date,
-  prjtask_due_date,
-  prjtask_assigned_date,
-  prjtask_completed_date,
-  prjtask_username )
+INSERT INTO task
+ ( task_number,
+   task_name,
+   task_descrip,
+   task_parent_type,
+   task_parent_id, 
+   task_prj_id,
+   task_status,
+   task_hours_budget,
+   task_hours_actual,
+   task_exp_budget,
+   task_exp_actual,
+   task_owner_username,
+   task_start_date,
+   task_due_date,
+   task_assigned_date,
+   task_completed_date )
 SELECT
-  nextval('prjtask_prjtask_id_seq'),
   <? value("name") ?>,
   <? value("name") ?>,
   <? value("name") ?>,
+  'J',
   <? value("prj_id") ?>,
-  null,
+  <? value("prj_id") ?>,
   'O',
   0,
   0,
@@ -38,6 +37,6 @@ SELECT
   <? value("startDate") ?>,
   null,
   <? value("startDate") ?>,
-  null,
-  current_user
-RETURNING prjtask_id;
+  null
+RETURNING task_id;
+
