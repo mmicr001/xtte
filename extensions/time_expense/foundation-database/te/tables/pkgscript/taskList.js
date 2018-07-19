@@ -8,14 +8,29 @@ _list["populateMenu(QMenu *,XTreeWidgetItem *, int)"].connect(populateMenu);
 // context menu
 function populateMenu(pMenu, pItem, pCol)
 {
-  var mCode;
+  var mCode, isProjectTask, isProjectLinked;
+
+  var sql = "SELECT task_parent_type, COALESCE(task_prj_id, -1) AS task_prj_id "
+          + "FROM task "
+          + "WHERE task_id = <? value('task_id') ?>; ";
+  var qry = toolbox.executeQuery(sql, {task_id: _list.id()});
+  if (!xtte.errorCheck(qry))
+    return;
+  if (qry.first())
+  {
+    isProjectTask = qry.value("task_parent_type").toString() == 'J' ? true : false;
+    isProjectLinked = qry.value("task_prj_id") > 0 ? true : false;
+  }
+
   if(pMenu != null)
   {
     pMenu.addSeparator();
-    mCode = pMenu.addAction(qsTr("Add To Worksheet..."));
-    mCode.enabled = privileges.check("MaintainFixedAsset");
-    mCode.triggered.connect(postWorksheet);
-
+    if (isProjectTask || isProjectLinked)
+    {
+      mCode = pMenu.addAction(qsTr("Add To Worksheet..."));
+      mCode.enabled = privileges.check("MaintainFixedAsset");
+      mCode.triggered.connect(postWorksheet);
+    }
     mCode = pMenu.addAction(qsTr("Open Worksheet..."));
     mCode.enabled = privileges.check("MaintainFixedAsset");
     mCode.triggered.connect(openWorksheet);
@@ -37,11 +52,24 @@ function postWorksheet()
       var tsDetails = toolbox.executeDbQuery("task", "getWorksheetDetails", {task_id: _list.id()});
       if (tsDetails.first())
       {
-        params.prj_id = tsDetails.value("task_prj_id");
+        params.parent_type = tsDetails.value("task_parent_type");
+        params.prj_id = tsDetails.value("task_prj_id") || -1;
         params.note   = tsDetails.value("task_descrip");
         params.number = tsDetails.value("task_number");
         params.fromtask =  true;
         params.cust_id  = tsDetails.value("cust_id");
+      }
+
+      // If parent document has link to a project, then when time is attempted to be entered
+      // against document task, first setup task ans project task
+      if (params.parent_type != 'J' && params.prj_id > 0)
+      {
+        var sql = "UPDATE task SET task_parent_type = 'J', task_parent_id = <? value('prj_id') ?> "
+                + "WHERE task_id = <? value('task_id') ?>;";
+        var qry = toolbox.executeQuery(sql, params);
+        if (!xtte.errorCheck(qry))
+          return;
+        mywindow.sFillList();
       }
 
       var tmp = toolbox.openWindow("timeExpenseSheetItem", mywindow, Qt.NonModal, Qt.Dialog);
