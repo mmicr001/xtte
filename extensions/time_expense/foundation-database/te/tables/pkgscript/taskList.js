@@ -11,15 +11,15 @@ function populateMenu(pMenu, pItem, pCol)
   var mCode, isProjectTask, isProjectLinked;
 
   var sql = "SELECT task_parent_type, COALESCE(task_prj_id, -1) AS task_prj_id "
-          + "FROM task "
-          + "WHERE task_id = <? value('task_id') ?>; ";
+          + "  FROM task "
+          + " WHERE task_id = <? value('task_id') ?>; ";
   var qry = toolbox.executeQuery(sql, {task_id: _list.id()});
   if (!xtte.errorCheck(qry))
     return;
   if (qry.first())
   {
-    isProjectTask = qry.value("task_parent_type").toString() == 'J' ? true : false;
-    isProjectLinked = qry.value("task_prj_id") > 0 ? true : false;
+    isProjectTask = (qry.value("task_parent_type").toString() == 'J');
+    isProjectLinked = (qry.value("task_prj_id") > 0);
   }
 
   if(pMenu != null)
@@ -53,7 +53,7 @@ function postWorksheet()
       if (tsDetails.first())
       {
         params.parent_type = tsDetails.value("task_parent_type");
-        params.prj_id = tsDetails.value("task_prj_id") || -1;
+        params.prj_id = tsDetails.value("task_prj_id");
         params.note   = tsDetails.value("task_descrip");
         params.number = tsDetails.value("task_number");
         params.fromtask =  true;
@@ -61,7 +61,7 @@ function postWorksheet()
       }
 
       // If parent document has link to a project, then when time is attempted to be entered
-      // against document task, first setup task ans project task
+      // against document task, first setup task and project task
       if (params.parent_type != 'J' && params.prj_id > 0)
       {
         var sql = "UPDATE task SET task_parent_type = 'J', task_parent_id = <? value('prj_id') ?> "
