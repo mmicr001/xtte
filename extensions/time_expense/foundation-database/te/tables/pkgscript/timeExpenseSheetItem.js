@@ -715,6 +715,7 @@ xtte.timeExpenseSheetItem.clear = function()
   _items.setId(-1);
   _employee.enabled = false;
   _clients.enabled = true;
+  _clients.setId(-1);
   _po.clear();
   _po.enabled = true;
   _project.enabled = true;
