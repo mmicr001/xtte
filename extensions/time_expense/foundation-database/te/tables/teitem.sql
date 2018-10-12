@@ -65,6 +65,13 @@ begin
     end loop;
     alter table te.teitem alter column teitem_prjtask_id set data type integer;
   end if;
+
+  if exists(select 1 from information_schema.tables
+             where table_name = 'prjtask') then
+    perform xt.add_constraint('teitem', 'teitem_teitem_prjtask_id_fkey','foreign key (teitem_prjtask_id) references prjtask (prjtask_id) ', 'te');
+  else
+    perform xt.add_constraint('teitem', 'teitem_teitem_prjtask_id_fkey','foreign key (teitem_prjtask_id) references task (task_id) ', 'te');
+  end if;
 end
 $$ language plpgsql;
 
