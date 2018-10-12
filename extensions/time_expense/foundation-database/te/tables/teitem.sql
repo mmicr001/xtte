@@ -77,6 +77,5 @@ $$ language plpgsql;
 
 ALTER TABLE te.teitem DROP CONSTRAINT IF EXISTS teitem_teitem_prjtask_id_fkey;
 
-select xt.add_constraint('teitem', 'teitem_teitem_task_id_fkey','foreign key (teitem_prjtask_id) references task (task_id) ', 'te');
 
 comment on table te.teitem is 'Time Expense Worksheet Item';
