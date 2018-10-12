@@ -1,7 +1,7 @@
 /*
  * This file is part of the xtte package for xTuple ERP: PostBooks Edition, a free and
  * open source Enterprise Resource Planning software suite,
- * Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple.
+ * Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple.
  * It is licensed to you under the Common Public Attribution License
  * version 1.0, the full text of which (including xTuple-specific Exhibits)
  * is available at www.xtuple.com/CPAL.  By using this software, you agree
@@ -109,7 +109,7 @@ set = function(input)
         _po.enabled = false;
         _project.enabled = false;
         _task.enabled = false;
-        _notes.enabled = false;
+        _notes.readOnly = true;
         _billable.enabled = false;
         _empcost.enabled = false;
       }
