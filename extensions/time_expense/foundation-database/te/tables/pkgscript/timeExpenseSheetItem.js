@@ -111,8 +111,8 @@ set = function(input)
         _po.enabled = false;
         _project.enabled = false;
         _task.enabled = false;
-        _notes.enabled = false;
-        _billable.enabled = false; 
+        _notes.readOnly = true;
+        _billable.enabled = false;
         _empcost.enabled = false;
       }
       else if (input.mode == xtte.editMode)
