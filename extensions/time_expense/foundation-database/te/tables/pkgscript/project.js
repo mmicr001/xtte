@@ -135,12 +135,18 @@ xtte.project.newTask = function()
 
 xtte.project.editTask = function()
 {
-  xtte.project.openTask("edit");
+  if (_prjtask.altId() == 5)
+    xtte.project.openTask("edit");
+  else
+   mywindow.sEditTask();
 }
 
 xtte.project.viewTask = function()
 {
-  xtte.project.openTask("view");
+  if (_prjtask.altId() == 5)
+    xtte.project.openTask("view");
+  else
+   mywindow.sViewTask();
 }
 
 xtte.project.openTask = function(mode)
