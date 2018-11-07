@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[]) RETURNS integer AS $$
--- Copyright (c) 1999-2015 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 
 BEGIN
@@ -9,7 +9,7 @@ $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION te.invoicesheets(pHeadIDs integer[],
                                             pInvcdate date) RETURNS integer AS $$
--- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 _invcnum text;
