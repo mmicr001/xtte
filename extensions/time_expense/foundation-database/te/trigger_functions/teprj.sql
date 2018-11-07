@@ -1,7 +1,7 @@
 DROP TRIGGER IF EXISTS teprjtrigger ON te.teprj;
 
 CREATE OR REPLACE FUNCTION te.triggerteprj() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
   _update BOOLEAN := false;
