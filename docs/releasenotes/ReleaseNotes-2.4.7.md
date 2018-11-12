@@ -1,5 +1,5 @@
 # xTuple Time & Expense (xtte) Release Notes
-## Version 2.4.7 - March, 2018
+## Version 2.4.7 - November, 2018
 
 ### Summary
 
