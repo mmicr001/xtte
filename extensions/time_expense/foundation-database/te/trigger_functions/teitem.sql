@@ -2,7 +2,7 @@ DROP TRIGGER IF EXISTS teitemtrigger     ON te.teitem;
 DROP TRIGGER IF EXISTS teitem_did_change ON te.teitem;
 
 CREATE OR REPLACE FUNCTION te.triggerteitem() RETURNS "trigger" AS $$
--- Copyright (c) 1999-2017 by OpenMFG LLC, d/b/a xTuple. 
+-- Copyright (c) 1999-2018 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
 _r RECORD;
