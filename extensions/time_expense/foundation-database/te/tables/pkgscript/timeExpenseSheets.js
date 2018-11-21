@@ -364,6 +364,11 @@ xtte.timeExpenseSheets.processSheets = function(selected, invoice, voucher, post
     {
       var invcdate = newdlg.getDate();
     }
+    else
+    {
+      toolbox.executeRollback();
+      return false;
+    }
 
     // Create an array so invoices can be consolidated
     var ids = [];
