@@ -258,6 +258,33 @@
         <source>Billing</source>
         <translation type="unfinished">收帳</translation>
     </message>
+    <message>
+        <source>Open Worksheets</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to Worksheet</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>taskList</name>
+    <message>
+        <source>Add To Worksheet...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Worksheet...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Task List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>sAddToLatestTESheet line %1: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>tebilling</name>
@@ -773,6 +800,10 @@ Would you like to save them now?</source>
     </message>
     <message>
         <source>Worksheet Total:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You must enter time on the Work Sheet</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
