@@ -23,7 +23,7 @@ all:
 
 	cp package.xml ../package.xml
 	xsltproc -o package.xml $(PKG)/tables/pkgdict/build.xsl package.xml
-	rm $(PKG)/tables/pkgdict/translations.xml
+	rm $(PKG)/tables/pkgdict/translations.xml $(PKG)/tables/pkgdict/ts.pro
 
 	cd .. && tar czf ../../packages/$(PKG)-$(VER).gz $(TAROPTS) $(EXCLUDE) $(DIR)
 
