@@ -1,6 +1,6 @@
 {
   "name": "time_expense",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "comment": "Time Expense Management extension",
   "loadOrder": 100,
   "defaultSchema": "te",
