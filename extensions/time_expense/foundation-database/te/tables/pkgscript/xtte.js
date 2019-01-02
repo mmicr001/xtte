@@ -17,7 +17,6 @@ xtte.itemSql = "SELECT item_id,item_number,item_descrip1,item_descrip2, "
              + "FROM item JOIN uom ON (uom_id=item_inv_uom_id) "
              + "          JOIN te.teexp ON (teexp_id=item_id) "
              + "WHERE item_type='R' "
-             + "AND item_active "
 
 xtte.newMode 	= 0;
 xtte.editMode	= 1;
