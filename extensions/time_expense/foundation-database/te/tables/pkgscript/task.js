@@ -186,6 +186,7 @@ function sGetTeHead()
 
 // Initialize
 _item.setQuery(xtte.itemSql);
+_item.setType(0x00000040 | 0x80000000 | 0x08000000);
 _useItem.checked = false;
 
 // Connections
